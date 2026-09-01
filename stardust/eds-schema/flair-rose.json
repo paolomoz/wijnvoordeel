@@ -1,0 +1,315 @@
+{
+ "source": "http://localhost:8807/flair-rose-proposed.html",
+ "width": 1280,
+ "profile": "eds",
+ "sections": [
+  {
+   "section": "campaign-hero",
+   "items": [
+    {
+     "role": "body",
+     "order": 0,
+     "text": "The word is out: Flair lanceert haar eigen roséwijn. Want wat past beter bij zwoele zomeravonden, een lekker hapje en fijn gezelschap?"
+    },
+    {
+     "role": "body",
+     "order": 1,
+     "text": "We kozen voor een superfrisse zomerse rosé boordevol aardbeien, frambozen en rode bessen. Net als wij (en onze lezers) is de wijn fris en speels. En nog belangrijker: heel lekker!"
+    },
+    {
+     "role": "body",
+     "order": 2,
+     "text": "Kenmerken:"
+    },
+    {
+     "role": "body",
+     "order": 3,
+     "text": "• De ultieme zomerwijn"
+    },
+    {
+     "role": "body",
+     "order": 4,
+     "text": "• MER rosé"
+    },
+    {
+     "role": "body",
+     "order": 5,
+     "text": "• Druif: 100 % Grenache"
+    },
+    {
+     "role": "body",
+     "order": 6,
+     "text": "• 3L Bag-in-Box (dat zijn 4 flessen!)"
+    },
+    {
+     "role": "body",
+     "order": 7,
+     "text": "• Na opening blijft de wijn"
+    },
+    {
+     "role": "body",
+     "order": 8,
+     "text": "4 weken goed"
+    },
+    {
+     "role": "body",
+     "order": 9,
+     "text": "• Beter voor het milieu"
+    },
+    {
+     "role": "body",
+     "order": 10,
+     "text": "en je portemonnee"
+    },
+    {
+     "role": "body",
+     "order": 11,
+     "text": "Speciaal voor de Flair-lezeressen GRATIS VERZENDING vanaf 2 boxen!"
+    },
+    {
+     "role": "body",
+     "order": 12,
+     "text": "2025 | Frankrijk, Pays d'Oc"
+    },
+    {
+     "role": "cta",
+     "order": 13,
+     "text": "Flair MER rosé BIB 3L",
+     "href": "https://www.wijnvoordeel.be/flair-mer-rose-bib-3l"
+    },
+    {
+     "role": "body",
+     "order": 14,
+     "text": "-"
+    },
+    {
+     "role": "body",
+     "order": 15,
+     "text": "Smaak"
+    },
+    {
+     "role": "body",
+     "order": 16,
+     "text": "Licht"
+    },
+    {
+     "role": "body",
+     "order": 17,
+     "text": "34,99"
+    },
+    {
+     "role": "body",
+     "order": 18,
+     "text": "17"
+    },
+    {
+     "role": "body",
+     "order": 19,
+     "text": ",99"
+    },
+    {
+     "role": "body",
+     "order": 20,
+     "text": "Je bespaart"
+    },
+    {
+     "role": "body",
+     "order": 21,
+     "text": "49%"
+    },
+    {
+     "role": "body",
+     "order": 22,
+     "text": "1 doos"
+    },
+    {
+     "role": "body",
+     "order": 23,
+     "text": "2 dozen"
+    },
+    {
+     "role": "body",
+     "order": 24,
+     "text": "3 dozen"
+    },
+    {
+     "role": "body",
+     "order": 25,
+     "text": "4 dozen"
+    },
+    {
+     "role": "body",
+     "order": 26,
+     "text": "5 dozen"
+    },
+    {
+     "role": "body",
+     "order": 27,
+     "text": "6 dozen"
+    },
+    {
+     "role": "body",
+     "order": 28,
+     "text": "7 dozen"
+    },
+    {
+     "role": "body",
+     "order": 29,
+     "text": "8 dozen"
+    },
+    {
+     "role": "body",
+     "order": 30,
+     "text": "9 dozen"
+    },
+    {
+     "role": "body",
+     "order": 31,
+     "text": "10 dozen"
+    },
+    {
+     "role": "body",
+     "order": 32,
+     "text": "1 doos"
+    },
+    {
+     "role": "body",
+     "order": 33,
+     "text": "In winkelwagen"
+    }
+   ],
+   "imgCount": 4,
+   "repeats": [
+    {
+     "unitSelector": "DIV.product-item-details",
+     "count": 2,
+     "unit": {
+      "headings": 0,
+      "ctas": 1,
+      "imgs": 0,
+      "textRuns": 5
+     },
+     "uniform": false
+    }
+   ]
+  },
+  {
+   "section": "photo-quote",
+   "items": [],
+   "imgCount": 1,
+   "repeats": []
+  },
+  {
+   "section": "bag-in-box",
+   "items": [
+    {
+     "role": "body",
+     "order": 0,
+     "text": "Zo handig, een bag-in-box!"
+    },
+    {
+     "role": "body",
+     "order": 1,
+     "text": "Een bag-in-box is niet alleen handig om te stapelen of mee te nemen, maar is bovendien ook een stuk voordeliger. Uit één doos kan je namelijk 4 flessen wijn halen, al kost het je een stuk minder. En ja, ook onze planeet is er blij mee. Onze Flairrosé zit bovendien verpakt in een heerlijk zomers Flair-jasje."
+    }
+   ],
+   "imgCount": 3,
+   "repeats": [
+    {
+     "unitSelector": "DIV.green-grape",
+     "count": 2,
+     "unit": {
+      "headings": 0,
+      "ctas": 0,
+      "imgs": 1,
+      "textRuns": 0
+     },
+     "uniform": true
+    }
+   ]
+  },
+  {
+   "section": "usp-icons",
+   "items": [],
+   "imgCount": 4,
+   "repeats": [
+    {
+     "unitSelector": "DIV.icon-col",
+     "count": 4,
+     "unit": {
+      "headings": 0,
+      "ctas": 0,
+      "imgs": 1,
+      "textRuns": 0
+     },
+     "uniform": true
+    }
+   ]
+  },
+  {
+   "section": "usp-panel",
+   "items": [
+    {
+     "role": "body",
+     "order": 0,
+     "text": "Makkelijk"
+    },
+    {
+     "role": "body",
+     "order": 1,
+     "text": "Geen gedoe met kurken of flessen: je tapt eenvoudig een glas wanneer jij daar zin in hebt. Ideaal voor dagelijks gemak."
+    },
+    {
+     "role": "body",
+     "order": 2,
+     "text": "Lekker"
+    },
+    {
+     "role": "body",
+     "order": 3,
+     "text": "Topkwaliteit wijn, zorgvuldig geselecteerd. Tot de laatste druppel vol smaak en karakter, zoals je van ons gewend bent."
+    },
+    {
+     "role": "body",
+     "order": 4,
+     "text": "Duurzaam"
+    },
+    {
+     "role": "body",
+     "order": 5,
+     "text": "Minder glas, minder transport, minder afval. Wijn-in-Doos heeft een kleinere ecologische voetafdruk: goed voor jou én de planeet."
+    },
+    {
+     "role": "body",
+     "order": 6,
+     "text": "Tot 4 weken vers"
+    },
+    {
+     "role": "body",
+     "order": 7,
+     "text": "Dankzij de luchtdichte verpakking blijft de wijn na opening tot wel 4 weken vers en smaakvol. Geen verspilling meer!"
+    },
+    {
+     "role": "cta",
+     "order": 8,
+     "text": "Bestel nu!",
+     "href": "/checkout/cart?skus=K212398:1"
+    }
+   ],
+   "imgCount": 0,
+   "repeats": [
+    {
+     "unitSelector": "DIV.usp-col",
+     "count": 4,
+     "unit": {
+      "headings": 0,
+      "ctas": 0,
+      "imgs": 0,
+      "textRuns": 2
+     },
+     "uniform": true
+    }
+   ]
+  }
+ ]
+}

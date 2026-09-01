@@ -1,0 +1,58 @@
+/* campaign-intro — flair-rose hero, left column (replica; lifted values).
+   The SECTION carries the lavender ground and lays the two block wrappers
+   side by side (intro 827 / card 413 of the 1240 content box). */
+
+main .section.campaign-intro-container {
+  background: var(--color-campaign-lavender);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding: 0 max(60px, calc((100% - 1240px) / 2)) 20px;
+}
+
+main .section.campaign-intro-container > .campaign-intro-wrapper { flex: 0 0 66.694%; max-width: 66.694%; }
+main .section.campaign-intro-container > .product-card-wrapper { flex: 0 0 33.306%; max-width: 33.306%; }
+
+.campaign-intro .hero-images { display: flex; }
+.campaign-intro .hero-img-1 { width: 62.52%; margin: 0; }
+.campaign-intro .hero-img-2 { width: 37.48%; margin: 0; padding-top: 40px; }
+.campaign-intro .hero-images img { width: 100%; height: auto; display: block; border-radius: var(--radius-card); }
+.campaign-intro .hero-text { padding: 20px 0; max-width: 752px; }
+.campaign-intro .hero-text p { margin: 0; }
+.campaign-intro .hero-text p.kenmerken,
+.campaign-intro .hero-text p.gratis { margin: 13px 0; }
+
+.campaign-intro .lead h1 {
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 700;
+  color: var(--color-campaign-green);
+  margin: 0 0 26px;
+}
+
+.campaign-intro .body-black { color: #000; }
+
+.campaign-intro .k-title {
+  display: block;
+  font-size: 20px;
+  line-height: 29px;
+  font-weight: 700;
+  color: var(--color-campaign-green);
+}
+
+.campaign-intro .kenmerken ul { margin: 0; padding: 0; list-style: none; color: #000; }
+.campaign-intro .kenmerken li { line-height: 26px; }
+.campaign-intro .kenmerken li::before { content: '• '; }
+.campaign-intro .gratis { color: #000; }
+.campaign-intro .gratis strong { font-weight: 700; }
+
+@media (width <= 768px) {
+  main .section.campaign-intro-container { display: block; padding: 6px 0 5px; }
+  main .section.campaign-intro-container > .campaign-intro-wrapper,
+  main .section.campaign-intro-container > .product-card-wrapper { flex: none; max-width: none; }
+  .campaign-intro .hero-images { display: block; padding: 0 15px; }
+  .campaign-intro .hero-img-1,
+  .campaign-intro .hero-img-2 { width: 100%; padding-top: 0; }
+  .campaign-intro .hero-img-2 { margin-top: 12px; }
+  .campaign-intro .hero-text { padding: 20px 15px; }
+}

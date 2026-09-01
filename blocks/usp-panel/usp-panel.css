@@ -1,0 +1,63 @@
+/* usp-panel — green closer band with lavender USP panel (replica; lifted).
+   Icons straddle the panel top edge as on the live page. */
+
+main .section.usp-panel-container {
+  background: var(--color-campaign-green);
+  padding: 0 40px 40px;
+  margin-bottom: 52px;
+}
+
+.usp-panel .icons-row {
+  display: flex;
+  height: 31px;
+}
+
+.usp-panel .icon-col { width: 25%; text-align: center; }
+
+.usp-panel .icon-col img {
+  width: 80px;
+  height: auto;
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+}
+
+.usp-panel .usp-panel-inner {
+  background: var(--color-campaign-lavender);
+  border-radius: var(--radius-card);
+  padding: 60px 0 20px;
+  display: flex;
+  min-height: 200px;
+  box-sizing: border-box;
+}
+
+.usp-panel .usp-col { width: 25%; padding: 0 40px; text-align: center; box-sizing: border-box; }
+
+.usp-panel .usp-col strong {
+  display: block;
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 700;
+  color: #000;
+}
+
+.usp-panel .usp-col p {
+  margin-top: 14px;
+  font-size: 12px;
+  line-height: 20px;
+  color: #000;
+}
+
+.usp-panel .usp-order { text-align: center; margin-top: 40px; height: 58px; }
+.usp-panel .usp-order .button-wrapper { display: inline-flex; }
+
+/* live order button is the lighter orange (#fd992b) */
+.usp-panel .usp-order a.button.primary { background: var(--color-primary-alt); }
+.usp-panel .usp-order a.button.primary:hover { background: rgb(253 153 43 / 80%); }
+
+@media (width <= 768px) {
+  main .section.usp-panel-container { background: #fcdcdd; padding: 0 15px 30px; margin-bottom: 0; }
+  .usp-panel .icons-row { display: none; }
+  .usp-panel .usp-panel-inner { display: none; }
+  .usp-panel .usp-order { margin-top: 0; }
+}

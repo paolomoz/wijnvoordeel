@@ -1,20 +1,182 @@
-footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
-}
+/* footer — wijnvoordeel.be chrome (replica; lifted values) */
 
-footer .footer > div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
-}
+footer .footer.block { background: #fff; }
+footer .wvd-footer { font-size: 16px; line-height: 26px; }
 
-footer .footer p {
+/* usp bar */
+footer .footer-usp-section .ism-usp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 73px;
   margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-@media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
+footer .ism-usp-item {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  line-height: 17.5px;
+  color: var(--text-muted);
+}
+
+footer .ism-usp-item picture { display: inline-flex; }
+
+footer .ism-usp-item img {
+  display: inline-block;
+  vertical-align: middle;
+  max-height: 24px;
+  width: auto;
+  margin-right: 12px;
+}
+
+footer .ism-usp-item em {
+  color: var(--color-accent-green);
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* menu columns */
+footer .footer-menu-container {
+  background: var(--light-color);
+  padding: 20px 0 35px;
+}
+
+footer .footer-columns { display: flex; }
+footer .footer-col { width: 248px; }
+
+footer .footer-menu-title {
+  font-size: 23px;
+  line-height: 26px;
+  font-weight: 700;
+  color: var(--text-color);
+  display: block;
+}
+
+footer .footer-menu-title a { color: var(--text-color); }
+footer .footer-menu-list { margin-top: 19px; padding: 0; list-style: none; }
+footer .footer-menu-list li { margin-bottom: 4px; }
+
+footer .footer-menu-list a {
+  display: block;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--text-muted);
+}
+
+footer .footer-legal {
+  text-align: center;
+  color: #9f9f9f;
+  margin-top: 14px;
+  padding-bottom: 13px;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+/* bottom */
+footer .footer-menu-bottom-content {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 20px 15px;
+}
+
+footer .footer-payment-block { padding: 10px 0; height: 81px; margin-bottom: 15px; box-sizing: border-box; }
+
+footer .footer-payment-icons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 8px 0;
+  margin: 0;
+  list-style: none;
+}
+
+footer .footer-payment-icons li { display: inline-block; margin-right: 30px; vertical-align: middle; }
+footer .footer-payment-icons img { display: block; height: 27px; width: auto; }
+footer .footer-bottom-row { display: flex; justify-content: space-between; align-items: flex-start; }
+
+footer .footer-bottom-social-links {
+  max-width: 20%;
+  width: 248px;
+  padding: 17px 0 10px;
+  display: flex;
+  gap: 12px;
+}
+
+footer .footer-bottom-social-links img { width: 25px; height: 25px; display: block; }
+footer .footer-bottom-additional-links { max-width: 80%; flex: 1; padding: 20px 0 20px 10px; }
+
+footer .footer-bottom-menu {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+footer .footer-bottom-menu li {
+  font-size: 14px;
+  line-height: 34px;
+  color: var(--text-muted);
+  margin-left: 34px;
+}
+
+footer .footer-bottom-menu a { color: var(--text-muted); }
+
+/* ---------- mobile (≤768) ---------- */
+@media (width <= 768px) {
+  footer .footer-usp-section .ism-usp { height: 57px; justify-content: center; }
+  footer .ism-usp-item { display: none; }
+  footer .ism-usp-item:nth-child(2) { display: flex; }
+  footer .footer-menu-container { padding: 0 15px 17px; }
+  footer .footer-menu-container .wrap { padding: 0; }
+  footer .footer-columns { display: block; }
+  footer .footer-col { width: auto; }
+
+  footer .footer-menu-item {
+    height: 67px;
+    overflow: hidden;
+    border-top: 1px solid #ddd;
+    position: relative;
   }
+
+  footer .footer-menu-item.open { height: auto; padding-bottom: 12px; }
+
+  footer .footer-menu-title {
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 700;
+    padding: 23px 0 17px;
+    cursor: pointer;
+  }
+
+  footer .footer-menu-title::after {
+    content: '';
+    position: absolute;
+    right: 4px;
+    top: 28px;
+    width: 16px;
+    height: 16px;
+    background: url('/icons/chevron-down.svg') center no-repeat;
+    background-size: 14px;
+  }
+
+  footer .footer-menu-item.open .footer-menu-title::after { transform: rotate(180deg); }
+  footer .footer-menu-list { margin-top: 0; }
+  footer .footer-legal { margin-top: 15px; padding-bottom: 12px; }
+  footer .footer-menu-bottom-content { background: var(--light-color); padding: 0 15px 13px; }
+  footer .footer-payment-block { display: none; }
+  footer .footer-bottom-social-links { display: none; }
+  footer .footer-bottom-additional-links { max-width: none; padding: 0; }
+
+  footer .footer-bottom-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    padding-top: 7px;
+  }
+
+  footer .footer-bottom-menu li { margin: 0 3px; }
 }

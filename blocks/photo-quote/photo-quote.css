@@ -1,0 +1,47 @@
+/* photo-quote — full-bleed photo band (replica; lifted: cover 0% 50%, h550,
+   quote panel 723px, lavender 75% wash, 4px dashed frame) */
+
+.photo-quote .photo-band {
+  position: relative;
+  min-height: 550px;
+  padding: 40px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.photo-quote .photo-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.photo-quote .photo-bg img,
+.photo-quote .photo-bg picture {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.photo-quote .photo-bg img { object-fit: cover; object-position: 0% 50%; }
+.photo-quote .photo-inner { position: relative; z-index: 1; display: flex; }
+
+.photo-quote .quote-panel {
+  width: 723px;
+  max-width: 100%;
+  margin-top: 100px;
+  background: rgb(211 195 223 / 75%);
+  border: 4px dashed #e35928;
+  border-radius: var(--radius-card);
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.photo-quote .quote-panel figure { margin: 0; }
+.photo-quote .quote-panel img { width: 100%; height: auto; display: block; border-radius: var(--radius-card); }
+
+@media (width <= 768px) {
+  .photo-quote .photo-band { min-height: 240px; padding: 0; }
+  .photo-quote .photo-bg { position: static; }
+  .photo-quote .photo-bg img { height: auto; object-fit: initial; }
+  .photo-quote .quote-panel { display: none; }
+}

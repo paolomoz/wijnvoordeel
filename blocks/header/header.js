@@ -1,171 +1,137 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 
-// media query match that indicates mobile/tablet width
-const isDesktop = window.matchMedia('(min-width: 900px)');
-
-function closeOnEscape(e) {
-  if (e.code === 'Escape') {
-    const nav = document.getElementById('nav');
-    const navSections = nav.querySelector('.nav-sections');
-    if (!navSections) return;
-    const navSectionExpanded = navSections.querySelector('[aria-expanded="true"]');
-    if (navSectionExpanded && isDesktop.matches) {
-      // eslint-disable-next-line no-use-before-define
-      toggleAllNavSections(navSections);
-      navSectionExpanded.focus();
-    } else if (!isDesktop.matches) {
-      // eslint-disable-next-line no-use-before-define
-      toggleMenu(nav, navSections);
-      nav.querySelector('button').focus();
-    }
-  }
-}
-
-function closeOnFocusLost(e) {
-  const nav = e.currentTarget;
-  if (!nav.contains(e.relatedTarget)) {
-    const navSections = nav.querySelector('.nav-sections');
-    if (!navSections) return;
-    const navSectionExpanded = navSections.querySelector('[aria-expanded="true"]');
-    if (navSectionExpanded && isDesktop.matches) {
-      // eslint-disable-next-line no-use-before-define
-      toggleAllNavSections(navSections, false);
-    } else if (!isDesktop.matches) {
-      // eslint-disable-next-line no-use-before-define
-      toggleMenu(nav, navSections, false);
-    }
-  }
-}
-
-function openOnKeydown(e) {
-  const focused = document.activeElement;
-  const isNavDrop = focused.className === 'nav-drop';
-  if (isNavDrop && (e.code === 'Enter' || e.code === 'Space')) {
-    const dropExpanded = focused.getAttribute('aria-expanded') === 'true';
-    // eslint-disable-next-line no-use-before-define
-    toggleAllNavSections(focused.closest('.nav-sections'));
-    focused.setAttribute('aria-expanded', dropExpanded ? 'false' : 'true');
-  }
-}
-
-function focusNavSection() {
-  document.activeElement.addEventListener('keydown', openOnKeydown);
-}
-
 /**
- * Toggles all nav sections
- * @param {Element} sections The container element
- * @param {Boolean} expanded Whether the element should be expanded or collapsed
+ * header — wijnvoordeel.be chrome (template-slotted replica).
+ * Schema: stardust/eds-schema/flair-rose.json (chrome is outside sections;
+ * geometry from sites/wijnvoordeel-be/capture/lift-1440.json).
+ *
+ * /nav fragment contract (3 sections):
+ *   1. brand — logo link + image
+ *   2. sections — <ul> of nav links (last li "Service" renders right-aligned)
+ *   3. tools — <ul> USP bar items (img + text, <em> = green accent) and an
+ *      optional wijnmatch image link
+ *
+ * Sticky morph mirrors the live site: body.make-sticky-header past 240px
+ * scroll pins the nav row; document height is compensated (measured live:
+ * docH 2944 → 2943).
  */
-function toggleAllNavSections(sections, expanded = false) {
-  if (!sections) return;
-  sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
-    section.setAttribute('aria-expanded', expanded);
-  });
+
+const ICONS = {
+  search: '/icons/header-search.svg',
+  account: '/icons/my-account.svg',
+  cart: '/icons/minicart.svg',
+};
+
+function el(tag, className, html) {
+  const e = document.createElement(tag);
+  if (className) e.className = className;
+  if (html !== undefined) e.innerHTML = html;
+  return e;
 }
 
-/**
- * Toggles the entire nav
- * @param {Element} nav The container element
- * @param {Element} navSections The nav sections within the container element
- * @param {*} forceExpanded Optional param to force nav expand behavior when not null
- */
-function toggleMenu(nav, navSections, forceExpanded = null) {
-  const expanded = forceExpanded !== null ? !forceExpanded : nav.getAttribute('aria-expanded') === 'true';
-  const button = nav.querySelector('.nav-hamburger button');
-  document.body.style.overflowY = (expanded || isDesktop.matches) ? '' : 'hidden';
-  nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-  toggleAllNavSections(navSections, expanded || isDesktop.matches ? 'false' : 'true');
-  button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
-  // enable nav dropdown keyboard accessibility
-  if (navSections) {
-    const navDrops = navSections.querySelectorAll('.nav-drop');
-    if (isDesktop.matches) {
-      navDrops.forEach((drop) => {
-        if (!drop.hasAttribute('tabindex')) {
-          drop.setAttribute('tabindex', 0);
-          drop.addEventListener('focus', focusNavSection);
-        }
-      });
-    } else {
-      navDrops.forEach((drop) => {
-        drop.removeAttribute('tabindex');
-        drop.removeEventListener('focus', focusNavSection);
-      });
-    }
-  }
-
-  // enable menu collapse on escape keypress
-  if (!expanded || isDesktop.matches) {
-    // collapse menu on escape press
-    window.addEventListener('keydown', closeOnEscape);
-    // collapse menu on focus lost
-    nav.addEventListener('focusout', closeOnFocusLost);
-  } else {
-    window.removeEventListener('keydown', closeOnEscape);
-    nav.removeEventListener('focusout', closeOnFocusLost);
-  }
+function buildSearch(extraClass, placeholder) {
+  const wrap = el('div', `block-search ${extraClass || ''}`);
+  wrap.innerHTML = `
+    <form class="minisearch" action="https://www.wijnvoordeel.be/catalogsearch/result/" method="get">
+      <input class="input-text" type="text" name="q" placeholder="${placeholder}" maxlength="128" autocomplete="off">
+      <button type="submit" class="action-search" aria-label="Zoeken"><span>Zoek</span></button>
+    </form>`;
+  return wrap;
 }
 
-/**
- * loads and decorates the header, mainly the nav
- * @param {Element} block The header block element
- */
 export default async function decorate(block) {
-  // load nav as fragment
   const navMeta = getMetadata('nav');
   const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
   const fragment = await loadFragment(navPath);
 
-  // decorate nav DOM
-  block.textContent = '';
-  const nav = document.createElement('nav');
-  nav.id = 'nav';
-  while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
+  const sections = [...fragment.querySelectorAll(':scope > .section')];
+  const [brandSec, linksSec, toolsSec] = sections;
 
-  const classes = ['brand', 'sections', 'tools'];
-  classes.forEach((c, i) => {
-    const section = nav.children[i];
-    if (section) section.classList.add(`nav-${c}`);
-  });
+  const nav = el('div', 'wvd-header');
 
-  const navBrand = nav.querySelector('.nav-brand');
-  const brandLink = navBrand.querySelector('.button');
-  if (brandLink) {
-    brandLink.className = '';
-    brandLink.closest('.button-container').className = '';
-  }
-
-  const navSections = nav.querySelector('.nav-sections');
-  if (navSections) {
-    navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
-      if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
-      navSection.addEventListener('click', () => {
-        if (isDesktop.matches) {
-          const expanded = navSection.getAttribute('aria-expanded') === 'true';
-          toggleAllNavSections(navSections);
-          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-        }
-      });
+  // --- top USP bar (tools section's list) ---
+  const uspList = toolsSec?.querySelector('ul');
+  if (uspList) {
+    const bar = el('div', 'top-container-usp');
+    const wrap = el('div', 'wrap');
+    const ul = el('ul', 'ism-usp');
+    [...uspList.children].forEach((li) => {
+      const item = el('li', 'ism-usp-item');
+      [...li.childNodes].forEach((n) => item.append(n.cloneNode(true)));
+      ul.append(item);
     });
+    wrap.append(ul);
+    bar.append(wrap);
+    nav.append(bar);
   }
 
-  // hamburger for mobile
-  const hamburger = document.createElement('div');
-  hamburger.classList.add('nav-hamburger');
-  hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
-      <span class="nav-hamburger-icon"></span>
-    </button>`;
-  hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
-  nav.prepend(hamburger);
-  nav.setAttribute('aria-expanded', 'false');
-  // prevent mobile nav behavior on window resize
-  toggleMenu(nav, navSections, isDesktop.matches);
-  isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
+  // --- header content: logo / search / account+cart ---
+  const content = el('div', 'header-content');
+  const brandLink = brandSec?.querySelector('a') || el('a');
+  const logo = el('a', 'logo');
+  logo.href = brandLink.href || '/';
+  logo.title = 'Wijnvoordeel.be';
+  const brandImg = brandSec?.querySelector('picture, img');
+  if (brandImg) logo.append(brandImg.cloneNode(true));
+  const center = el('div', 'header-center');
+  center.append(buildSearch('main-search', 'Zoek jouw favoriete wijn'));
+  const right = el('div', 'header-right', `
+    <ul class="header-links">
+      <li class="header-search-toggle"><span class="hicon" style="background-image:url('${ICONS.search}')" aria-hidden="true"></span></li>
+      <li class="header-account"><span class="hicon" style="background-image:url('${ICONS.account}')" aria-hidden="true"></span><span class="hlabel">Mijn account</span></li>
+      <li class="minicart-wrapper"><a href="https://www.wijnvoordeel.be/checkout/cart/"><span class="hicon" style="background-image:url('${ICONS.cart}')" aria-hidden="true"></span><span class="hlabel">Mijn winkelwagen</span></a></li>
+    </ul>`);
+  const burger = el('button', 'nav-toggle', '<span>Menu</span>');
+  burger.setAttribute('aria-label', 'Menu');
+  content.append(burger, logo, center, right);
+  nav.append(content);
 
-  const navWrapper = document.createElement('div');
-  navWrapper.className = 'nav-wrapper';
-  navWrapper.append(nav);
-  block.append(navWrapper);
+  // --- nav row (links section's list) + sticky extras ---
+  const navRow = el('div', 'nav-sections-row');
+  const inner = el('div', 'nav-inner');
+  const navList = linksSec?.querySelector('ul');
+  if (navList) {
+    const menu = el('nav', 'navigation-menu');
+    menu.setAttribute('aria-label', 'Hoofdmenu');
+    [...navList.querySelectorAll(':scope > li')].forEach((li) => {
+      // pipeline may wrap the trigger link in a <p> (#98)
+      const a = li.querySelector(':scope > a, :scope > p > a');
+      if (!a) return;
+      const link = el('a', 'navigation-menu-link');
+      link.href = a.href;
+      const text = el('span', 'navigation-menu-link-text');
+      text.textContent = a.textContent.trim();
+      if (/promoties/i.test(text.textContent)) text.classList.add('is-promo');
+      if (/no\/low/i.test(text.textContent)) text.classList.add('is-nolow');
+      if (/^service$/i.test(text.textContent)) link.classList.add('is-service');
+      link.append(text);
+      menu.append(link);
+    });
+    inner.append(menu);
+  }
+  const stickyEl = el('div', 'sticky-header-el');
+  stickyEl.append(buildSearch('sticky-search', 'Zoek een wijn,...'));
+  stickyEl.insertAdjacentHTML('beforeend', `
+    <span class="hicon" style="background-image:url('${ICONS.account}')" aria-hidden="true"></span>
+    <a href="https://www.wijnvoordeel.be/checkout/cart/" aria-label="Mijn winkelwagen"><span class="hicon" style="background-image:url('${ICONS.cart}')" aria-hidden="true"></span></a>`);
+  inner.append(stickyEl);
+  const wijnmatch = toolsSec?.querySelector('p a img, p picture')?.closest('a')
+    || toolsSec?.querySelector('a:has(img), a:has(picture)');
+  if (wijnmatch) {
+    const wm = el('div', 'wijnmatch-btn');
+    wm.append(wijnmatch.cloneNode(true));
+    inner.append(wm);
+  }
+  navRow.append(inner);
+  nav.append(navRow);
+
+  block.replaceChildren(nav);
+
+  // sticky morph (threshold inside the live 200–260 window)
+  const onScroll = () => {
+    document.body.classList.toggle('make-sticky-header', window.scrollY > 240);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 }
