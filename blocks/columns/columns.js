@@ -1,18 +1,20 @@
-export default function decorate(block) {
-  const cols = [...block.firstElementChild.children];
-  block.classList.add(`columns-${cols.length}-cols`);
-
-  // setup image columns
-  [...block.children].forEach((row) => {
-    [...row.children].forEach((col) => {
-      const pic = col.querySelector('picture');
-      if (pic) {
-        const picWrapper = pic.closest('div');
-        if (picWrapper && picWrapper.children.length === 1) {
-          // picture is only content in column
-          picWrapper.classList.add('columns-img-col');
-        }
-      }
-    });
+/**
+ * columns — Block Collection shape: one row, one cell per column.
+ * gallery variant (club-nolo): four square photos edge to edge.
+ * Ground via ground-* variant classes.
+ */
+export default async function decorate(block) {
+  const ground = [...block.classList].find((c) => c.startsWith('ground-'));
+  if (ground) block.closest('.section')?.classList.add(ground);
+  const row = block.querySelector(':scope > div');
+  if (!row) return;
+  const inner = document.createElement('div');
+  inner.className = 'wrap columns-inner';
+  [...row.children].forEach((cell) => {
+    const col = document.createElement('div');
+    col.className = 'column';
+    [...cell.childNodes].forEach((n) => col.append(n.cloneNode(true)));
+    inner.append(col);
   });
+  block.replaceChildren(inner);
 }

@@ -8,6 +8,9 @@
  *   last:  CTA row — <strong><a>…</a></strong> (renders as the accent pill)
  */
 export default async function decorate(block) {
+  const ground = [...block.classList].find((c) => c.startsWith('ground-'));
+  if (ground) block.closest('.section')?.classList.add(ground);
+  const nolo = block.classList.contains('nolo');
   const rows = [...block.children];
   const uspRows = [];
   let ctaRow = null;
@@ -35,6 +38,7 @@ export default async function decorate(block) {
 
     const col = document.createElement('div');
     col.className = 'usp-col';
+    if (nolo && pic) col.append((pic.closest('picture') || pic).cloneNode(true));
     if (titleCell) {
       const strong = document.createElement('strong');
       strong.textContent = titleCell.textContent.trim();

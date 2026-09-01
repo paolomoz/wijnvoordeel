@@ -1,0 +1,22 @@
+/* pattern-story — narrative band on patterned ground (lifted from the gated
+   clubnolo prototype .nolo-text rules) */
+
+.pattern-story .story-inner { display: flex; height: 495px; padding: 0 20px; }
+.pattern-story .txt-col { flex: 1; }
+.pattern-story .heading-img,
+.pattern-story .txt-col picture img { width: 332px; height: auto; display: block; margin: -13px 0 25px; }
+.pattern-story .txt-col p { margin: 0 0 13px; max-width: 560px; color: #000; }
+.pattern-story .txt-col .bold-line { margin-top: 5px; font-weight: 700; color: #000; }
+.pattern-story .cta-row { margin: 12px 0 13px; }
+.pattern-story .pol-col { width: 500px; }
+.pattern-story .pol-col picture,
+.pattern-story .pol-col img { width: 500px; height: 495px; display: block; object-fit: contain; }
+
+@media (width <= 768px) {
+  .pattern-story .story-inner { display: block; height: auto; padding: 0 15px; }
+  .pattern-story .heading-img,
+  .pattern-story .txt-col picture img { margin: 0 0 16px; max-width: 100%; }
+  .pattern-story .pol-col { width: 100%; }
+  .pattern-story .pol-col picture,
+  .pattern-story .pol-col img { width: 100%; height: auto; }
+}

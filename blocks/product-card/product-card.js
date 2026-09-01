@@ -28,8 +28,7 @@ function collectNodes(block) {
   return out;
 }
 
-export default async function decorate(block) {
-  const nodes = collectNodes(block);
+function buildCard(nodes) {
   const media = (n) => (n.matches('picture, img') ? n : n.querySelector('picture, img'));
 
   const pics = [];
@@ -108,14 +107,14 @@ export default async function decorate(block) {
   form.className = 'product-item-form';
   const priceBox = document.createElement('div');
   priceBox.className = 'price-box';
-  if (prices[0]) {
+  if (prices.length > 1) {
     const old = document.createElement('span');
     old.className = 'old-price';
-    old.textContent = prices[0];
+    [old.textContent] = prices;
     priceBox.append(old);
   }
-  if (prices[1]) {
-    const [euros, cents] = prices[1].split(',');
+  if (prices.length) {
+    const [euros, cents] = prices[prices.length - 1].split(',');
     const special = document.createElement('span');
     special.className = 'special-price';
     special.innerHTML = `<span class="price">${euros}<sup>,${cents}</sup></span>`;
@@ -158,5 +157,58 @@ export default async function decorate(block) {
   form.append(actions);
   card.append(form);
 
-  block.replaceChildren(card);
+  return card;
+}
+
+/**
+ * rail variant — one row per product (cells: image [+badge] | texts | price | qty+CTA),
+ * rendered as a horizontal rail of cards sharing the single-card DOM.
+ * Ground variants (ground-*) paint the parent section (JS-applied, not authored
+ * section-metadata). Justification (conversion log): same commerce-tile pattern
+ * as the single card — D9 variant, not a new block.
+ */
+export default async function decorate(block) {
+  const ground = [...block.classList].find((c) => c.startsWith('ground-'));
+  if (ground) block.closest('.section')?.classList.add(ground);
+
+  if (!block.classList.contains('rail')) {
+    block.replaceChildren(buildCard(collectNodes(block)));
+    return;
+  }
+
+  const rail = document.createElement('ol');
+  rail.className = 'card-rail';
+  let cta = null;
+  [...block.children].forEach((row) => {
+    const hasPic = row.querySelector('picture, img');
+    const link = row.querySelector('a');
+    if (!hasPic && link) { cta = link; return; }
+    if (!hasPic && !row.textContent.trim()) return;
+    const nodes = [];
+    row.querySelectorAll(':scope > div').forEach((cell) => {
+      const kids = [...cell.children];
+      if (kids.length) nodes.push(...kids);
+      else if (cell.textContent.trim()) {
+        const p = document.createElement('p');
+        p.textContent = cell.textContent.trim();
+        nodes.push(p);
+      }
+    });
+    const li = document.createElement('li');
+    li.className = 'rail-item';
+    li.append(buildCard(nodes));
+    rail.append(li);
+  });
+  const wrap = document.createElement('div');
+  wrap.className = 'wrap rail-wrap';
+  wrap.append(rail);
+  if (cta) {
+    const row = document.createElement('p');
+    row.className = 'button-wrapper rail-cta';
+    const a = cta.cloneNode(true);
+    if (!a.classList.contains('button')) a.classList.add('button', 'primary');
+    row.append(a);
+    wrap.append(row);
+  }
+  block.replaceChildren(wrap);
 }

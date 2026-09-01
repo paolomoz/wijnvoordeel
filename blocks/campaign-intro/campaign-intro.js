@@ -25,7 +25,57 @@ function collectNodes(block) {
   return out.length ? out : [...block.children];
 }
 
+function decorateNolo(block) {
+  // nolo variant — photo-band hero: bg photo | heading-art img | h1 (promoted
+  // intro line) | brand-logo img. Rows classified by content.
+  const cells = [...block.querySelectorAll(':scope > div > div')];
+  const pics = [];
+  let lead = null;
+  cells.forEach((cell) => {
+    const m = cell.querySelector('picture, img');
+    if (m) { pics.push(m.closest('picture') || m); return; }
+    const h = cell.querySelector('h1, h2') || (cell.textContent.trim() ? cell : null);
+    if (h && !lead) lead = h;
+  });
+  const [bg, art, logo] = pics;
+  const band = document.createElement('div');
+  band.className = 'hero-nolo-band';
+  if (bg) {
+    const layer = document.createElement('div');
+    layer.className = 'hero-bg-layer';
+    const img = bg.cloneNode(true);
+    const raw = img.matches('img') ? img : img.querySelector('img');
+    if (raw) { raw.setAttribute('loading', 'eager'); raw.setAttribute('fetchpriority', 'high'); }
+    layer.append(img);
+    band.append(layer);
+  }
+  const inner = document.createElement('div');
+  inner.className = 'hero-nolo-inner';
+  const colTxt = document.createElement('div');
+  colTxt.className = 'hero-nolo-col col-txt';
+  if (art) {
+    const fig = document.createElement('figure');
+    fig.append(art.cloneNode(true));
+    colTxt.append(fig);
+  }
+  if (lead) {
+    const h1 = document.createElement('h1');
+    const src = lead.matches('h1, h2') ? lead : lead;
+    [...src.childNodes].forEach((n) => h1.append(n.cloneNode(true)));
+    colTxt.append(h1);
+  }
+  const colLogo = document.createElement('div');
+  colLogo.className = 'hero-nolo-col col-logo';
+  if (logo) colLogo.append(logo.cloneNode(true));
+  inner.append(colTxt, colLogo, Object.assign(document.createElement('div'), { className: 'hero-nolo-col' }));
+  band.append(inner);
+  block.replaceChildren(band);
+}
+
 export default async function decorate(block) {
+  const ground = [...block.classList].find((c) => c.startsWith('ground-'));
+  if (ground) block.closest('.section')?.classList.add(ground);
+  if (block.classList.contains('nolo')) { decorateNolo(block); return; }
   const nodes = collectNodes(block);
   const media = (n) => (n.matches('picture, img') ? n : n.querySelector('picture, img'));
 

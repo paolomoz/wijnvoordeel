@@ -138,3 +138,56 @@
   .product-card .product-item-actions { padding-bottom: 12px; }
   .product-card a.button.tocart { width: auto; }
 }
+
+/* ---------- rail variant (club nolo campaign rails; lifted from the gated
+   clubnolo prototype .product-rail rules) ---------- */
+.product-card.rail { margin-top: 0; }
+.product-card.rail .card-rail { display: flex; gap: 32px; align-items: stretch; margin: 0; padding: 0 0 39px; list-style: none; }
+.product-card.rail .rail-item { width: 392px; position: relative; }
+
+.product-card.rail .product-item-info {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 12px;
+  min-height: 432px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.product-card.rail .product-item-photo { height: 216px; }
+.product-card.rail .product-image-container { width: 279px; }
+
+.product-card.rail .product-item-photo img {
+  width: auto;
+  max-height: 184px;
+  height: auto;
+  display: inline-block;
+}
+
+.product-card.rail .crobox-medal img { width: 40px; height: 40px; }
+.product-card.rail .crobox-medal { top: 16px; right: auto; left: 16px; }
+
+/* frozen crobox watermark (3rd-party injection; fixed asset per #67) */
+.product-card.rail .product-item-photo::after {
+  content: '';
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  width: 53px;
+  height: 70px;
+  background: url('/img/nolo/crobox-watermark.png') center / 53px 70px no-repeat;
+}
+
+.product-card.rail .product-item-details { margin-top: 24px; }
+.product-card.rail .product-item-form { margin-top: auto; }
+.product-card.rail .price-box .special-price { margin-left: 0; }
+.product-card.rail .product-item-actions { display: flex; justify-content: flex-start; gap: 9px; padding-bottom: 0; }
+.product-card.rail .rail-cta { text-align: center; margin: 10px 0 0; height: 58px; display: block; }
+
+@media (width <= 768px) {
+  .product-card.rail { margin: 0; }
+  .product-card.rail .card-rail { display: block; padding: 0; }
+  .product-card.rail .rail-item { width: 100%; margin-bottom: 30px; }
+  .product-card.rail .product-item-actions { display: block; }
+  .product-card.rail .product-item-actions .field-qty { margin-bottom: 12px; }
+}

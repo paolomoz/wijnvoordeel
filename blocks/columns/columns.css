@@ -1,33 +1,18 @@
-.columns > div {
-  display: flex;
-  flex-direction: column;
-}
+/* columns — collection shape; gallery variant (lifted from the gated
+   clubnolo prototype .nolo-gallery rules) */
 
-.columns img {
-  width: 100%;
-}
+.columns .columns-inner { display: flex; padding: 0 20px; }
+.columns .column { flex: 1; }
 
-.columns > div > div {
-  order: 1;
-}
-
-.columns > div > .columns-img-col {
-  order: 0;
-}
-
-.columns > div > .columns-img-col img {
+.columns.gallery .column picture,
+.columns.gallery .column img {
+  width: 310px;
+  height: 310px;
   display: block;
+  object-fit: cover;
 }
 
-@media (width >= 900px) {
-  .columns > div {
-    align-items: center;
-    flex-direction: unset;
-    gap: 24px;
-  }
-
-  .columns > div > div {
-    flex: 1;
-    order: unset;
-  }
+@media (width <= 768px) {
+  .columns .columns-inner { display: block; padding: 0; }
+  .columns.gallery .column img { width: 345px; height: 345px; margin: 0 auto; }
 }
