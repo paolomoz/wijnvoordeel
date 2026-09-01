@@ -66,7 +66,7 @@ main .section.campaign-intro-container:has(.campaign-intro.nolo) {
 
 .campaign-intro.nolo .hero-nolo-band {
   position: relative;
-  margin-top: -1px;
+  margin-top: -15px;
   height: 400px;
   padding: 50px 40px 0;
   box-sizing: border-box;

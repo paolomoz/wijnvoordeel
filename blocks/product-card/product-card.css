@@ -178,10 +178,12 @@
   background: url('/img/nolo/crobox-watermark.png') center / 53px 70px no-repeat;
 }
 
-.product-card.rail .product-item-details { margin-top: 24px; }
-.product-card.rail .product-item-form { margin-top: auto; }
+.product-card.rail .product-item-details { margin-top: 24px; padding-bottom: 16px; }
+.product-card.rail .product-item-details .product-item-name { margin-top: 0; }
+.product-card.rail .product-item-details .product-attr-item { margin-top: 0; line-height: 18px; }
+.product-card.rail .product-item-form { margin-top: auto; padding-bottom: 0; }
 .product-card.rail .price-box .special-price { margin-left: 0; }
-.product-card.rail .product-item-actions { display: flex; justify-content: flex-start; gap: 9px; padding-bottom: 0; }
+.product-card.rail .product-item-actions { display: flex; justify-content: flex-start; gap: 9px; padding-bottom: 12px; }
 .product-card.rail .rail-cta { text-align: center; margin: 10px 0 0; height: 58px; display: block; }
 
 @media (width <= 768px) {
