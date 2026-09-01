@@ -77,6 +77,7 @@ footer .footer-legal {
 
 /* bottom */
 footer .footer-menu-bottom-content {
+  box-sizing: border-box;
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 20px 15px;
@@ -93,8 +94,20 @@ footer .footer-payment-icons {
   list-style: none;
 }
 
-footer .footer-payment-icons li { display: inline-block; margin-right: 30px; vertical-align: middle; }
-footer .footer-payment-icons img { display: block; height: 27px; width: auto; }
+footer .footer-payment-icons li { display: inline-block; margin-right: 35px; vertical-align: middle; }
+
+/* live pins explicit per-icon sizes inline; replicated per position */
+footer .footer-payment-icons li:nth-child(1) img { width: 45px; height: 28px; }
+footer .footer-payment-icons li:nth-child(2) img { width: 71px; height: 27px; }
+footer .footer-payment-icons li:nth-child(3) img { width: 87px; height: 21px; }
+footer .footer-payment-icons li:nth-child(4) img { width: 40px; height: 27px; }
+footer .footer-payment-icons li:nth-child(5) img { width: 57px; height: 16px; }
+footer .footer-payment-icons li:nth-child(6) img { width: 28px; height: 28px; }
+footer .footer-payment-icons li:nth-child(7) img { width: 69px; height: 28px; }
+footer .footer-payment-icons li:nth-child(8) img { width: 28px; height: 28px; }
+footer .footer-payment-icons li:nth-child(9) img { width: 44px; height: 28px; }
+footer .footer-payment-icons li:nth-child(10) img { width: 31px; height: 27px; }
+footer .footer-payment-icons li:nth-child(11) img { width: 35px; height: 28px; }
 footer .footer-bottom-row { display: flex; justify-content: space-between; align-items: flex-start; }
 
 footer .footer-bottom-social-links {
@@ -102,7 +115,7 @@ footer .footer-bottom-social-links {
   width: 248px;
   padding: 17px 0 10px;
   display: flex;
-  gap: 12px;
+  gap: 30px;
 }
 
 footer .footer-bottom-social-links img { width: 25px; height: 25px; display: block; }

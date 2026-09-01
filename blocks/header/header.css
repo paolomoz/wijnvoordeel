@@ -30,6 +30,8 @@ header .ism-usp-item {
   color: var(--text-muted);
 }
 
+header .ism-usp-item:first-child { width: 340px; }
+
 header .ism-usp-item picture { display: inline-flex; }
 
 header .ism-usp-item img {
