@@ -194,3 +194,16 @@ footer .footer-bottom-menu a { color: var(--text-muted); }
 
   footer .footer-bottom-menu li { margin: 0 3px; }
 }
+
+/* .nl payment row (footer-nl set/order; sizes measured on live .nl) */
+footer.brand-nl .footer-payment-icons li:nth-child(1) img { width: 71px; height: 27px; }
+footer.brand-nl .footer-payment-icons li:nth-child(2) img { width: 40px; height: 27px; }
+footer.brand-nl .footer-payment-icons li:nth-child(3) img { width: 69px; height: 28px; }
+footer.brand-nl .footer-payment-icons li:nth-child(4) img { width: 87px; height: 21px; }
+footer.brand-nl .footer-payment-icons li:nth-child(5) img { width: 57px; height: 16px; }
+footer.brand-nl .footer-payment-icons li:nth-child(6) img { width: 28px; height: 28px; }
+footer.brand-nl .footer-payment-icons li:nth-child(7) img { width: 28px; height: 28px; }
+footer.brand-nl .footer-payment-icons li:nth-child(8) img { width: 31px; height: 27px; }
+footer.brand-nl .footer-payment-icons li:nth-child(9) img { width: 70px; height: 19px; }
+footer.brand-nl .footer-payment-icons li:nth-child(10) img { width: 87px; height: 25px; }
+footer.brand-nl .footer-payment-icons li:nth-child(11) img { width: 231px; height: 28px; }
