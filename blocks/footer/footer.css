@@ -96,18 +96,23 @@ footer .footer-payment-icons {
 
 footer .footer-payment-icons li { display: inline-block; margin-right: 35px; vertical-align: middle; }
 
-/* live pins explicit per-icon sizes inline; replicated per position */
-footer .footer-payment-icons li:nth-child(1) img { width: 45px; height: 28px; }
-footer .footer-payment-icons li:nth-child(2) img { width: 71px; height: 27px; }
-footer .footer-payment-icons li:nth-child(3) img { width: 87px; height: 21px; }
-footer .footer-payment-icons li:nth-child(4) img { width: 40px; height: 27px; }
-footer .footer-payment-icons li:nth-child(5) img { width: 57px; height: 16px; }
-footer .footer-payment-icons li:nth-child(6) img { width: 28px; height: 28px; }
-footer .footer-payment-icons li:nth-child(7) img { width: 69px; height: 28px; }
-footer .footer-payment-icons li:nth-child(8) img { width: 28px; height: 28px; }
-footer .footer-payment-icons li:nth-child(9) img { width: 44px; height: 28px; }
-footer .footer-payment-icons li:nth-child(10) img { width: 31px; height: 27px; }
-footer .footer-payment-icons li:nth-child(11) img { width: 35px; height: 28px; }
+/* per-icon sizes lifted from live inline styles, keyed to the authored alt
+   (icon-intrinsic, brand-agnostic — alts survive the pipeline; replaces the
+   per-position nth-child tables that were positionally coupled per brand) */
+footer .footer-payment-icons img[alt="Bancontact"] { width: 45px; height: 28px; }
+footer .footer-payment-icons img[alt="iDEAL-Wero"] { width: 71px; height: 27px; }
+footer .footer-payment-icons img[alt="PayPal"] { width: 87px; height: 21px; }
+footer .footer-payment-icons img[alt="MasterCard"] { width: 40px; height: 27px; }
+footer .footer-payment-icons img[alt="Visa"] { width: 57px; height: 16px; }
+footer .footer-payment-icons img[alt="American Express"] { width: 28px; height: 28px; }
+footer .footer-payment-icons img[alt="Klarna"] { width: 69px; height: 28px; }
+footer .footer-payment-icons img[alt="Apple Pay"] { width: 28px; height: 28px; }
+footer .footer-payment-icons img[alt="Edenred"] { width: 44px; height: 28px; }
+footer .footer-payment-icons img[alt="PostNL"] { width: 31px; height: 27px; }
+footer .footer-payment-icons img[alt="Becom"] { width: 35px; height: 28px; }
+footer .footer-payment-icons img[alt="NIX 18"] { width: 70px; height: 19px; }
+footer .footer-payment-icons img[alt="Thuiswinkel Waarborg"] { width: 87px; height: 25px; }
+footer .footer-payment-icons img[alt="Winnaar Shopping Awards Drinken 2024"] { width: 231px; height: 28px; }
 footer .footer-bottom-row { display: flex; justify-content: space-between; align-items: flex-start; }
 
 footer .footer-bottom-social-links {
@@ -196,14 +201,3 @@ footer .footer-bottom-menu a { color: var(--text-muted); }
 }
 
 /* .nl payment row (footer-nl set/order; sizes measured on live .nl) */
-footer.brand-nl .footer-payment-icons li:nth-child(1) img { width: 71px; height: 27px; }
-footer.brand-nl .footer-payment-icons li:nth-child(2) img { width: 40px; height: 27px; }
-footer.brand-nl .footer-payment-icons li:nth-child(3) img { width: 69px; height: 28px; }
-footer.brand-nl .footer-payment-icons li:nth-child(4) img { width: 87px; height: 21px; }
-footer.brand-nl .footer-payment-icons li:nth-child(5) img { width: 57px; height: 16px; }
-footer.brand-nl .footer-payment-icons li:nth-child(6) img { width: 28px; height: 28px; }
-footer.brand-nl .footer-payment-icons li:nth-child(7) img { width: 28px; height: 28px; }
-footer.brand-nl .footer-payment-icons li:nth-child(8) img { width: 31px; height: 27px; }
-footer.brand-nl .footer-payment-icons li:nth-child(9) img { width: 70px; height: 19px; }
-footer.brand-nl .footer-payment-icons li:nth-child(10) img { width: 87px; height: 25px; }
-footer.brand-nl .footer-payment-icons li:nth-child(11) img { width: 231px; height: 28px; }
