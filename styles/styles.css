@@ -285,6 +285,7 @@ main .section:empty {
 main .wrap,
 header .wrap,
 footer .wrap {
+  box-sizing: border-box;
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 20px;

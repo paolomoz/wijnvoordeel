@@ -49,6 +49,7 @@ header .ism-usp-item .em {
 
 /* header content */
 header .header-content {
+  box-sizing: border-box;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -61,7 +62,7 @@ header .header-content {
 
 header a.logo { display: block; width: 377px; padding-top: 9px; }
 header a.logo img { width: 225px; height: auto; display: block; }
-header .header-center { max-width: 488px; width: 486px; padding-top: 4px; flex: 0 1 486px; }
+header .header-center { max-width: 488px; width: 486px; padding-top: 14px; flex: 0 1 486px; }
 header .block-search { position: relative; }
 
 header .block-search .input-text {
@@ -100,7 +101,7 @@ header .block-search .action-search span {
   clip: rect(0, 0, 0, 0);
 }
 
-header .header-right { width: 377px; display: flex; justify-content: flex-end; padding-top: 13px; }
+header .header-right { width: 377px; display: flex; justify-content: flex-end; padding-top: 10px; }
 header .header-links { display: flex; margin: 0; padding: 0; list-style: none; }
 
 header .header-account,
@@ -132,6 +133,7 @@ header .nav-toggle { display: none; }
 header .nav-sections-row { background: #fff; }
 
 header .nav-inner {
+  box-sizing: border-box;
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 20px;
@@ -142,7 +144,7 @@ header .nav-inner {
   height: 64px;
 }
 
-header .navigation-menu { display: flex; }
+header .navigation-menu { display: flex; margin: 0 -15px; }
 header .navigation-menu-link { display: block; padding: 0 16px; }
 header .navigation-menu-link.is-service { margin-left: auto; }
 
