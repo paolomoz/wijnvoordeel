@@ -120,6 +120,7 @@ footer .footer-bottom-social-links {
 
 footer .footer-bottom-social-links img { width: 25px; height: 25px; display: block; }
 footer .footer-bottom-additional-links { max-width: 80%; flex: 1; padding: 20px 0 20px 10px; }
+footer.brand-nl .footer-bottom-additional-links { padding-bottom: 10px; }
 
 footer .footer-bottom-menu {
   display: flex;

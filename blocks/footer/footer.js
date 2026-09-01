@@ -15,6 +15,8 @@ import { loadFragment } from '../fragment/fragment.js';
 export default async function decorate(block) {
   const footerMeta = getMetadata('footer');
   const footerPath = footerMeta ? new URL(footerMeta, window.location).pathname : '/footer';
+  // .nl chrome renders a tighter bottom row than .be (measured 64px vs 74px)
+  if (footerPath.endsWith('-nl')) block.closest('footer')?.classList.add('brand-nl');
   const fragment = await loadFragment(footerPath);
 
   const sections = [...fragment.querySelectorAll(':scope > .section')];

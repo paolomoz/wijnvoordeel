@@ -307,9 +307,11 @@ main .section.ground-geel-1 { background-image: url('/img/nolo/bg_nolo_halfdot_g
 main .section.ground-geel-2 { background-image: url('/img/nolo/bg_nolo_halfdot_geel_roze_1.jpg'); padding: 0 40px; }
 main .section.ground-blauw-1 { background-image: url('/img/nolo/bg_nolo_halfdot_blauw_roze_1.jpg'); padding: 20px 40px 0; }
 main .section.ground-blauw-2 { background-image: url('/img/nolo/bg_nolo_halfdot_blauw_roze_2.jpg'); padding: 0 40px; }
-main .section.ground-blauw-4 { background-image: url('/img/nolo/bg_nolo_halfdot_blauw_roze_4.jpg'); padding: 0 40px 50px; }
+main .section.ground-blauw-4 { background-image: url('/img/nolo/bg_nolo_halfdot_blauw_roze_4.jpg'); padding: 0 40px 50px; margin-bottom: 52px; }
 
 @media (width <= 768px) {
   main .section.ground-groen,
   main .section[class*="ground-"] { padding-left: 15px; padding-right: 15px; }
+
+  main .section.ground-blauw-4 { margin-bottom: 0; }
 }
