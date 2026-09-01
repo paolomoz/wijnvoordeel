@@ -16,3 +16,117 @@
   .columns .columns-inner { display: block; padding: 0; }
   .columns.gallery .column img { width: 345px; height: 345px; margin: 0 auto; }
 }
+
+/* ---------- breakpoint row pairs (row 2 = mobile copy) ---------- */
+.columns .columns-inner.inner-mobile { display: none; }
+
+/* ---------- advies variants (wijnadvies; lifted from the gated
+   wijnadvies prototype) ---------- */
+
+/* art-directed cells: first picture desktop, second mobile */
+.columns[class*="advies-"] .column picture:nth-of-type(2) { display: none; }
+
+/* hero: text col 517 + art col 723 on the orange ground */
+.columns.advies-hero .columns-inner { padding: 0 20px; }
+.columns.advies-hero .column:first-child { flex: 0 0 517px; display: flex; align-items: center; }
+.columns.advies-hero .column:last-child { flex: 0 0 723px; }
+.columns.advies-hero .column img { width: 100%; height: auto; display: block; border-radius: 12px; }
+.columns.advies-hero .column p { margin: 0; }
+
+/* prose cards: beige rounded cards */
+.columns.advies-cards .columns-inner { gap: 40px; align-items: stretch; }
+.columns.advies-cards .column {
+  flex: 0 0 600px;
+  box-sizing: border-box;
+  background: #ede4da;
+  border-radius: 12px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+.columns.advies-cards .column h4 { margin: 0 0 10px; font-size: 23px; line-height: 34px; font-weight: 700; color: #555; }
+.columns.advies-cards .column p { margin: 0 0 13px; font-size: 16px; line-height: 26px; color: #555; }
+.columns.advies-cards .column a:not(.button) { color: #fd992b; }
+.columns.advies-cards .column p.button-wrapper { margin: 10px 0 0; }
+.columns.advies-cards .column .button {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: #f57c25; color: #fff; border: 0; border-radius: 24px;
+  padding: 15px 24px; margin: 0; font-size: 16px; line-height: 18px; font-weight: 700;
+}
+.columns.advies-cards .column.col-pic { justify-content: center; align-items: center; background: #ede4da; }
+.columns.advies-cards .column.col-pic img { width: 520px; height: auto; display: block; border-radius: 12px; }
+
+/* top-10 linked figure tiles */
+.columns.advies-tiles .columns-inner { justify-content: space-between; padding: 0; }
+.columns.advies-tiles .column { flex: 0 0 290px; }
+.columns.advies-tiles .tile { display: block; padding: 10px; text-decoration: none; }
+.columns.advies-tiles .tile figure { margin: 0; }
+.columns.advies-tiles .tile img { width: 100%; height: 138px; object-fit: cover; display: block; border-radius: 12px 12px 0 0; }
+.columns.advies-tiles .tile figcaption {
+  background: #faf7f5; border-radius: 0 0 12px 12px; padding: 16px 8px;
+  font-size: 16px; line-height: 18px; font-weight: 700; color: #555; text-align: center;
+}
+.columns.advies-tiles .tile figcaption::after {
+  content: ""; display: inline-block; width: 16px; height: 12px; margin-left: 7px;
+  background: url('/img/advies/arrow-right-orange-light.svg') no-repeat center / contain;
+}
+
+/* icon tiles: beige mini-cards */
+.columns.advies-icons .columns-inner { justify-content: center; gap: 40px; margin-top: 5px; padding: 0; }
+.columns.advies-icons .column {
+  flex: 0 0 250px; box-sizing: border-box;
+  background: #ede4da; border-radius: 12px; padding: 5px; text-align: center;
+}
+.columns.advies-icons .column p { margin: 10px 0 0; height: 100px; display: flex; justify-content: center; overflow: hidden; }
+.columns.advies-icons .column img { height: 100px; width: auto; display: block; }
+.columns.advies-icons .column h3 { margin: 10px 0 0; height: 40px; overflow: hidden; font-size: 16px; line-height: 34px; font-weight: 700; color: #555; }
+
+/* trust line */
+.columns.advies-trust .columns-inner { display: block; text-align: center; height: 28px; padding: 0; }
+.columns.advies-trust .column { display: inline-block; vertical-align: middle; margin-right: 12px; font-size: 16px; line-height: 26px; color: #555; }
+.columns.advies-trust .column:last-child { margin-right: 0; }
+.columns.advies-trust .column a { color: #555; text-decoration: underline; }
+.columns.advies-trust .column p { margin: 0; }
+.columns.advies-trust .column img { display: block; }
+.columns.advies-trust .column:nth-child(3) img { width: 130px; height: 24px; }
+.columns.advies-trust .column:nth-child(5) img { width: 90px; height: 22px; }
+
+@media (width <= 768px) {
+  .columns .columns-inner.inner-mobile { display: block; }
+  .columns .columns-inner:not(:only-child, .inner-mobile) { display: none; }
+
+  .columns[class*="advies-"] .column picture:nth-of-type(2) { display: block; }
+  .columns[class*="advies-"] .column picture:nth-of-type(1):not(:only-of-type) { display: none; }
+
+  .columns.advies-hero .columns-inner { display: flex; flex-direction: column-reverse; padding: 0 15px; }
+  .columns.advies-hero .column:first-child,
+  .columns.advies-hero .column:last-child { flex: none; display: block; }
+  .columns.advies-hero .column:first-child { margin-top: -30px; }
+
+  .columns.advies-cards .columns-inner { display: block; }
+  .columns.advies-cards .column { flex: none; padding: 30px; margin-bottom: 20px; }
+  .columns.advies-cards .column:last-child { margin-bottom: 0; }
+  .columns.advies-cards .column h4 { font-size: 18px; line-height: 26px; }
+  .columns.advies-cards .column .button { width: 100%; box-sizing: border-box; padding: 15px 8px; white-space: nowrap; }
+  .columns.advies-cards .column.col-pic { display: none; }
+
+  .columns.advies-tiles .columns-inner { display: block; padding: 0 1px; }
+  .columns.advies-tiles .column { flex: none; }
+  .columns.advies-tiles .tile { padding: 0 10px; margin-bottom: 20px; }
+  .columns.advies-tiles .tile img { height: 82px; }
+
+  .columns.advies-icons .columns-inner { display: block; margin-top: 0; }
+  .columns.advies-icons .column { flex: none; width: 208px; margin: 0 auto 5px; }
+  .columns.advies-icons .column h3 { height: auto; font-size: 16px; line-height: 26px; }
+
+  .columns.advies-trust .columns-inner { height: auto; }
+}
+
+/* banner variant: full-width linked visual */
+.columns.advies-banner .columns-inner { padding: 0 20px; }
+.columns.advies-banner .column img { width: 100%; height: auto; display: block; border-radius: 12px; }
+.columns.advies-banner .column p { margin: 0; }
+
+@media (width <= 768px) {
+  .columns.advies-banner .columns-inner { padding: 0 15px; }
+}

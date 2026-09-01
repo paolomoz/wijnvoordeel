@@ -179,7 +179,9 @@ body.make-sticky-header header .nav-sections-row {
 }
 
 body.make-sticky-header header .nav-inner { height: 73px; }
-body.make-sticky-header header.brand-nl { height: calc(var(--nav-height) + 24px); }
+/* page-scoped (theme: sticky-grow): live clubnolo grows +24px in flow when the
+   bar pins (measured 4522 -> 4546); other pages (.be, wijnadvies) hold height */
+body.sticky-grow.make-sticky-header header { height: calc(var(--nav-height) + 24px); }
 body.make-sticky-header header .navigation-menu-link-text { padding: 26px 0 24px; }
 body.make-sticky-header header .sticky-header-el { display: flex; align-items: center; margin-left: auto; }
 body.make-sticky-header header .sticky-header-el .block-search { width: 200px; margin-right: 16px; }

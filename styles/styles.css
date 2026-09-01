@@ -315,3 +315,56 @@ main .section.ground-blauw-4 { background-image: url('/img/nolo/bg_nolo_halfdot_
 
   main .section.ground-blauw-4 { margin-bottom: 0; }
 }
+
+/* ---------- wijnadvies section styles (JS/section-metadata applied; lifted
+   from the gated wijnadvies prototype) ---------- */
+main .section.ground-oranje { background: #f57c25; margin-top: -1px; }
+
+/* the live page's h1 is visually hidden (SEO-only) */
+main .section.ground-oranje .default-content-wrapper h1 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+main .section.advies-cards-section { margin-top: 30px; }
+
+main .section.advies-panel {
+  box-sizing: border-box;
+  max-width: 1240px;
+  margin: 30px auto 0;
+  border: 1px solid #ede4da;
+  border-radius: 12px;
+  padding: 40px;
+}
+main .section.advies-panel .default-content-wrapper h4 { margin: 0 0 10px; font-size: 23px; line-height: 34px; font-weight: 700; color: #555; }
+main .section.advies-panel .default-content-wrapper p { margin: 0 0 13px; font-size: 16px; line-height: 26px; color: #555; }
+/* art-directed intro copy: 1st paragraph desktop, 2nd mobile (matches the
+   live page's paired PageBuilder rows) */
+main .section.advies-panel .default-content-wrapper p:nth-of-type(2) { display: none; }
+
+main .section.advies-icons-section { margin-top: 40px; }
+
+main .section.advies-banner { max-width: 1280px; margin: 30px auto 0; padding: 0 20px; }
+main .section.advies-banner img { width: 100%; height: auto; display: block; border-radius: 12px; }
+main .section.advies-banner picture:nth-of-type(2),
+main .section.advies-banner p:nth-of-type(2) { display: none; }
+main .section.advies-banner p { margin: 0; }
+
+main .section.advies-trust-section { margin: 20px 0 102px; }
+
+@media (width <= 768px) {
+  main .section.ground-oranje { margin-top: 0; }
+  main .section.advies-cards-section { margin-top: 30px; }
+  main .section.advies-panel { margin: 20px 15px 0; border-color: #cdcdcd; padding: 40px; max-width: none; }
+  main .section.advies-panel .default-content-wrapper h4 { font-size: 18px; line-height: 26px; }
+  main .section.advies-panel .default-content-wrapper p:nth-of-type(1) { display: none; }
+  main .section.advies-panel .default-content-wrapper p:nth-of-type(2) { display: block; }
+  main .section.advies-icons-section { margin-top: 20px; border-color: #ede4da; }
+  main .section.advies-banner { padding: 0 15px; margin-top: 20px; }
+  main .section.advies-banner picture:nth-of-type(1) { display: none; }
+  main .section.advies-banner picture:nth-of-type(2) { display: block; }
+  main .section.advies-trust-section { margin: 20px 0 50px; }
+}
