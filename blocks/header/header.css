@@ -179,6 +179,7 @@ body.make-sticky-header header .nav-sections-row {
 }
 
 body.make-sticky-header header .nav-inner { height: 73px; }
+body.make-sticky-header header.brand-nl { height: calc(var(--nav-height) + 24px); }
 body.make-sticky-header header .navigation-menu-link-text { padding: 26px 0 24px; }
 body.make-sticky-header header .sticky-header-el { display: flex; align-items: center; margin-left: auto; }
 body.make-sticky-header header .sticky-header-el .block-search { width: 200px; margin-right: 16px; }

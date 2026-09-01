@@ -43,6 +43,9 @@ function buildSearch(extraClass, placeholder) {
 export default async function decorate(block) {
   const navMeta = getMetadata('nav');
   const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
+  // .nl chrome: the live .nl header grows +24px in flow when the sticky bar
+  // pins (measured 4522 -> 4546); .be preserves document height
+  if (navPath.endsWith('-nl')) block.closest('header')?.classList.add('brand-nl');
   const fragment = await loadFragment(navPath);
 
   const sections = [...fragment.querySelectorAll(':scope > .section')];
