@@ -105,3 +105,24 @@ Block-reuse decisions:
 - footer.css sizes payment icons by `li:nth-child(N)` — positionally coupled to each brand's icon set/order; .nl needed a full brand-nl-scoped override table. Keying sizes to stable attributes (e.g. `img[alt="Klarna"]`) would collapse both tables into one; flagged, zero-visual-change candidate.
 - `.advies-panel .default-content-wrapper p:nth-of-type(1/2)` desktop/mobile intro pair is positional; acceptable while documented here, same remark as above.
 - pre-existing pilot CSS duplication (btn pill styles repeated across header/footer/product-card/columns) noted; not touched.
+
+## Maintainability review pass (2026-09-01, cross-repo — Natxo's review)
+
+Actions (zero visual impact, proven by 0.00% bit-identical captures on all 5 pages):
+- Payment icon sizing: both positional `li:nth-child` tables (.be + brand-nl, 22 rules)
+  collapsed into ONE alt-keyed table (14 rules, `img[alt="…"]`) — sizes are
+  icon-intrinsic; the positional coupling that broke on the .nl icon order is gone.
+  Same fix in the wijnbeurs repo (11 rules).
+- Dead stock blocks removed: cards, hero, widget (this repo); cards, widget (wijnbeurs).
+  blocks/ now contains exactly the used inventory.
+- Token-completeness gate (#91): clean in both repos.
+- Duplication scan: only the chrome USP bar repeats (header↔footer, ~10 lines/repo) —
+  accepted as framework-idiomatic self-contained blocks; documented, not refactored.
+
+Watch-items (documented, deliberately not refactored):
+- Variant JS forks (`decorateCampaign`, `decorateNolo`) share <50% code with their
+  base decorate — correct today (different compositions), split into own blocks if
+  they grow further.
+- `advies-cards` positional desktop/mobile paragraph pairs (2-row breakpoint pairs).
+- `product-card` exists in both repos (cross-repo copy, skins diverged) — the
+  concrete data point for a future mono-repo/shared-library discussion.
