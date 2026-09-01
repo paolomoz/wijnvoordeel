@@ -48,6 +48,9 @@
 .columns.advies-cards .column p { margin: 0 0 13px; font-size: 16px; line-height: 26px; color: #555; }
 .columns.advies-cards .column a:not(.button) { color: #fd992b; }
 .columns.advies-cards .column p.button-wrapper { margin: 10px 0 0; }
+/* the source paragraph ends with a blank line (br br) that markdown cannot
+   carry; paragraphs with authored hard breaks keep it as padding */
+.columns.advies-cards .columns-inner:not(.inner-mobile) .column p:has(br) { padding-bottom: 26px; }
 .columns.advies-cards .column .button {
   display: inline-flex; align-items: center; justify-content: center;
   background: #f57c25; color: #fff; border: 0; border-radius: 24px;
