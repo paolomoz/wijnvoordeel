@@ -58,7 +58,14 @@ export default async function decorate(block) {
     const ul = el('ul', 'ism-usp');
     [...uspList.children].forEach((li) => {
       const item = el('li', 'ism-usp-item');
-      [...li.childNodes].forEach((n) => item.append(n.cloneNode(true)));
+      // images stay direct flex children; text goes in one span so the
+      // flex layout doesn't drop whitespace between text and <em>
+      const text = el('span', 'ism-usp-item-text');
+      [...li.childNodes].forEach((n) => {
+        if (n.nodeType === Node.ELEMENT_NODE && n.matches('picture, img')) item.append(n.cloneNode(true));
+        else text.append(n.cloneNode(true));
+      });
+      item.append(text);
       ul.append(item);
     });
     wrap.append(ul);
