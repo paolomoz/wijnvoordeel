@@ -2,10 +2,15 @@
    clubnolo prototype .nolo-text rules) */
 
 .pattern-story .story-inner { display: flex; height: 495px; padding: 0 20px; }
-.pattern-story .txt-col { flex: 1; }
+.pattern-story .txt-col { flex: 0 0 723px; box-sizing: border-box; padding: 50px 40px 0; }
 .pattern-story .heading-img,
-.pattern-story .txt-col picture img { width: 332px; height: auto; display: block; margin: -13px 0 25px; }
-.pattern-story .txt-col p { margin: 0 0 13px; max-width: 560px; color: #000; }
+.pattern-story .txt-col picture img { width: 332px; height: auto; display: block; margin: 0 0 13px; }
+
+/* the blauw-1 heading art carries different baked-in whitespace; per-instance
+   offsets lifted from the source (L5) */
+.pattern-story.ground-blauw-1 .heading-img,
+.pattern-story.ground-blauw-1 .txt-col picture img { margin: -13px 0 25px; }
+.pattern-story .txt-col p { margin: 0 0 13px; color: #000; }
 .pattern-story .txt-col .bold-line { margin-top: 5px; font-weight: 700; color: #000; }
 .pattern-story .cta-row { margin: 12px 0 13px; }
 .pattern-story .pol-col { width: 500px; }

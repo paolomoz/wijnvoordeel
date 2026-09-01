@@ -62,6 +62,12 @@ main .section.campaign-intro-container > .product-card-wrapper { flex: 0 0 33.30
 main .section.campaign-intro-container:has(.campaign-intro.nolo) {
   background: none;
   padding: 0;
+  display: block;
+}
+
+main .section.campaign-intro-container:has(.campaign-intro.nolo) > .campaign-intro-wrapper {
+  flex: none;
+  max-width: none;
 }
 
 .campaign-intro.nolo .hero-nolo-band {

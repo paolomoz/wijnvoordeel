@@ -109,7 +109,7 @@ export default async function decorate(block) {
       link.href = a.href;
       const text = el('span', 'navigation-menu-link-text');
       text.textContent = a.textContent.trim();
-      if (/promoties/i.test(text.textContent)) text.classList.add('is-promo');
+      if (/promoties|aanbiedingen/i.test(text.textContent)) text.classList.add('is-promo');
       if (/no\/low/i.test(text.textContent)) text.classList.add('is-nolow');
       if (/^service$/i.test(text.textContent)) link.classList.add('is-service');
       link.append(text);
