@@ -5,12 +5,16 @@
  *
  * Authoring rows:
  *   1..N: one row per USP — cells: icon image | title | description
- *   last:  CTA row — <strong><a>…</a></strong> (renders as the accent pill)
+ *   last:  CTA row — <strong><a>…</a></strong> (renders as the accent pill; optional)
+ *   bf variant (black-friday-2026): icon | title only (title may carry <em> = green
+ *   accent, as the chrome USP bar); no panel, no CTA — a horizontal trust triplet.
  */
 export default async function decorate(block) {
   const ground = [...block.classList].find((c) => c.startsWith('ground-'));
   if (ground) block.closest('.section')?.classList.add(ground);
   const nolo = block.classList.contains('nolo');
+  // bf (black-friday-2026) variant: icon inside the column + rich title (<em> = green accent)
+  const bf = block.classList.contains('bf');
   const rows = [...block.children];
   const uspRows = [];
   let ctaRow = null;
@@ -34,14 +38,15 @@ export default async function decorate(block) {
     const iconCol = document.createElement('div');
     iconCol.className = 'icon-col';
     if (pic) iconCol.append((pic.closest('picture') || pic).cloneNode(true));
-    icons.append(iconCol);
+    if (!bf) icons.append(iconCol);
 
     const col = document.createElement('div');
     col.className = 'usp-col';
-    if (nolo && pic) col.append((pic.closest('picture') || pic).cloneNode(true));
+    if ((nolo || bf) && pic) col.append((pic.closest('picture') || pic).cloneNode(true));
     if (titleCell) {
       const strong = document.createElement('strong');
-      strong.textContent = titleCell.textContent.trim();
+      if (bf) [...titleCell.childNodes].forEach((n) => strong.append(n.cloneNode(true)));
+      else strong.textContent = titleCell.textContent.trim();
       col.append(strong);
     }
     if (descCell) {
@@ -64,5 +69,6 @@ export default async function decorate(block) {
     order.append(btnWrap);
   }
 
+  if (bf) { block.replaceChildren(panel); return; }
   block.replaceChildren(icons, panel, order);
 }

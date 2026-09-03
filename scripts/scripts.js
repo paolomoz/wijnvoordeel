@@ -10,6 +10,8 @@ import {
   loadSections,
   loadCSS,
   buildBlock,
+  toClassName,
+  toCamelCase,
 } from './aem.js';
 
 if (window.trustedTypes && window.trustedTypes.createPolicy) {
@@ -143,6 +145,34 @@ function decorateButtons(main) {
 }
 
 /**
+ * Decodes `section-metadata` blocks (David's Model: default-content sections
+ * carry their skin as a small closed set of `style` values). The vendored
+ * aem.js decorateSections does not process them; this runs right after it.
+ * Rows: key | value. `style` → section classes (comma-separated); other keys →
+ * data attributes on the section. The block (and its wrapper) is removed.
+ * @param {Element} main The container element
+ */
+function decorateSectionMetadata(main) {
+  main.querySelectorAll(':scope > div.section .section-metadata').forEach((meta) => {
+    const section = meta.closest('.section');
+    [...meta.children].forEach((row) => {
+      const cells = [...row.children].map((c) => c.textContent.trim());
+      const [key, value] = cells;
+      if (!key) return;
+      if (key.toLowerCase() === 'style') {
+        (value || '').split(',').map((v) => toClassName(v.trim())).filter(Boolean)
+          .forEach((cls) => section.classList.add(cls));
+      } else {
+        section.dataset[toCamelCase(key)] = value || '';
+      }
+    });
+    const wrapper = meta.parentElement;
+    if (wrapper && wrapper.classList.contains('section-metadata-wrapper')) wrapper.remove();
+    else meta.remove();
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -151,6 +181,7 @@ export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
+  decorateSectionMetadata(main);
   decorateBlocks(main);
   decorateButtons(main);
 }

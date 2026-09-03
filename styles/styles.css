@@ -30,6 +30,12 @@
   --color-campaign-green: #0f9765;
   --color-border: #cdcdcd;
 
+  /* black-friday campaign layer (DESIGN.md: nacht / nacht-tegel / krijt / nacht-rand) */
+  --color-nacht: #161616;
+  --color-nacht-tegel: #232323;
+  --color-krijt: #d9d9d9;
+  --color-nacht-rand: #333;
+
   /* fonts */
   --body-font-family: quasimoda, quasimoda-fallback, 'Helvetica Neue', helvetica, arial, sans-serif;
   --heading-font-family: var(--body-font-family);
@@ -367,4 +373,146 @@ main .section.advies-trust-section { margin: 20px 0 102px; }
   main .section.advies-banner picture:nth-of-type(1) { display: none; }
   main .section.advies-banner picture:nth-of-type(2) { display: block; }
   main .section.advies-trust-section { margin: 20px 0 50px; }
+}
+
+/* ---------- black-friday-2026 — campaign layer ----------
+   Grounds: `ground-nacht` is applied by columns.bf-hero (block variant → section
+   class, same mechanism as ground-*); `dark` is a section-metadata style for
+   DEFAULT-CONTENT sections (closed set: dark). Section-metadata is decoded in
+   scripts.js (decorateSectionMetadata) — the vendored aem.js has no support. */
+main .section.ground-nacht,
+main .section.dark {
+  background: var(--color-nacht);
+  color: #fff;
+}
+
+main .section.ground-nacht h1,
+main .section.ground-nacht h2,
+main .section.dark h2 { color: #fff; }
+
+main .section.dark a.button.secondary {
+  border-color: var(--color-krijt);
+  color: #fff;
+}
+
+main .section.dark a.button.secondary:hover {
+  border-color: #fff;
+  color: #fff;
+  background: rgb(255 255 255 / 6%);
+}
+
+main .section.dark ::selection,
+main .section.ground-nacht ::selection {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* dark default-content section (closing CTA): centered composition */
+main .section.dark .default-content-wrapper {
+  box-sizing: border-box;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 56px 20px 48px;
+  text-align: center;
+}
+
+main .section.dark .default-content-wrapper h2 {
+  margin: 0 0 12px;
+  font-size: 28px;
+  line-height: 34px;
+}
+
+main .section.dark .default-content-wrapper p {
+  max-width: 52ch;
+  margin: 0 auto 28px;
+  color: var(--color-krijt);
+}
+
+main .section.dark .default-content-wrapper p.button-wrapper {
+  display: inline-flex;
+  max-width: none;
+  margin: 0 6px 12px;
+}
+
+/* black-friday theme (page metadata `Theme: black-friday`): default-content
+   section heads above the region/product blocks, page-scoped rail tweaks */
+body.black-friday main .section:not(.dark) .default-content-wrapper {
+  box-sizing: border-box;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 52px 20px 0;
+}
+
+body.black-friday main .section:not(.dark) .default-content-wrapper h2 {
+  margin: 0 0 12px;
+  font-size: 28px;
+  line-height: 34px;
+  text-wrap: balance;
+}
+
+body.black-friday main .section:not(.dark) .default-content-wrapper p {
+  max-width: 60ch;
+  margin: 0 0 28px;
+  text-wrap: pretty;
+}
+
+body.black-friday main .section.product-card-container { padding-bottom: 52px; }
+
+body.black-friday .product-card.rail .card-rail {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding-bottom: 0;
+}
+
+body.black-friday .product-card.rail .rail-item {
+  flex: 0 1 392px;
+  width: auto;
+  min-width: 0;
+}
+
+body.black-friday .product-card.rail .product-item-photo::after { content: none; } /* nolo crobox watermark is campaign-specific */
+body.black-friday .product-card.rail .rail-cta {
+  margin-top: 32px;
+  height: auto;
+}
+
+body.black-friday :focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+body.black-friday main .section.dark :focus-visible,
+body.black-friday main .section.ground-nacht :focus-visible { outline-color: #fff; }
+
+@media (width <= 768px) {
+  main .section.dark .default-content-wrapper { padding: 40px 15px 32px; }
+
+  main .section.dark .default-content-wrapper h2 {
+    font-size: 23px;
+    line-height: 30px;
+  }
+
+  body.black-friday main .section:not(.dark) .default-content-wrapper { padding: 36px 15px 0; }
+
+  body.black-friday main .section:not(.dark) .default-content-wrapper h2 {
+    font-size: 23px;
+    line-height: 30px;
+  }
+
+  body.black-friday main .section:not(.dark) .default-content-wrapper p { margin-bottom: 24px; }
+  body.black-friday main .section.product-card-container { padding-bottom: 36px; }
+
+  body.black-friday .product-card.rail .card-rail {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 15px;
+  }
+
+  body.black-friday .product-card.rail .rail-item {
+    flex: none;
+    margin-bottom: 0;
+  }
+
+  body.black-friday .product-card.rail .product-item-info { min-height: 0; }
 }

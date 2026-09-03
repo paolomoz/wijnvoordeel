@@ -97,3 +97,71 @@ main .section.usp-panel-container:has(.usp-panel.nolo) {
   .usp-panel.nolo .usp-panel-inner { display: block; }
   .usp-panel.nolo .usp-col { width: 100%; padding: 0 20px 10px; }
 }
+
+/* ---------- bf variant (black-friday-2026): the brand's logistics triplet as a
+   horizontal row on the beige surface — same rows (icon | title), no panel ---------- */
+main .section.usp-panel-container:has(.usp-panel.bf) {
+  background: var(--light-color);
+  padding: 32px 20px;
+  margin-bottom: 0;
+}
+
+.usp-panel.bf .icons-row,
+.usp-panel.bf .usp-order { display: none; }
+
+.usp-panel.bf .usp-panel-inner {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  min-height: 0;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.usp-panel.bf .usp-col {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 0 1 300px;
+  width: auto;
+  min-width: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.usp-panel.bf .usp-col img {
+  width: 44px;
+  height: 44px;
+  display: block;
+  flex: none;
+}
+
+.usp-panel.bf .usp-col strong {
+  margin: 0;
+  font-size: 16px;
+  line-height: 22px;
+  color: var(--text-color);
+}
+
+.usp-panel.bf .usp-col strong em {
+  font-style: normal;
+  color: var(--color-accent-green);
+}
+
+@media (width <= 768px) {
+  main .section.usp-panel-container:has(.usp-panel.bf) { padding: 28px 15px; }
+
+  .usp-panel.bf .usp-panel-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .usp-panel.bf .usp-col {
+    width: auto;
+    flex: none;
+    padding: 0;
+  }
+}

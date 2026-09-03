@@ -6,10 +6,15 @@
  * pictures (desktop first, mobile second) — visibility is CSS-side. An
  * advies-cards block with TWO rows is a breakpoint pair: first row
  * desktop copy, second row mobile copy.
+ * bf-hero variant (black-friday-2026): text cell (h1, lead, fact line with
+ * <em> green accent, buttonized CTA paragraphs grouped into one wrapping row)
+ * | picture cell (bottle cut-outs; first image eager/LCP). Paints ground-nacht.
+ * regios variant (black-friday-2026): 3 editorial cells (h3 + grape line + p).
  * Variants map to section classes (same mechanism as ground-*), since the
  * vendored runtime has no section-metadata support.
  */
 const SECTION_CLASS = {
+  'bf-hero': ['ground-nacht'],
   'advies-cards': ['advies-cards-section'],
   'advies-tiles': ['advies-panel'],
   'advies-icons': ['advies-panel', 'advies-icons-section'],
@@ -35,7 +40,7 @@ export default async function decorate(block) {
       const col = document.createElement('div');
       col.className = 'column';
       [...cell.childNodes].forEach((n) => col.append(n.cloneNode(true)));
-      if (col.querySelector('picture') && !col.querySelector('h1,h2,h3,h4')
+      if (col.querySelector('picture, img') && !col.querySelector('h1,h2,h3,h4')
         && ![...col.querySelectorAll('p')].some((p) => p.textContent.trim())) {
         col.classList.add('col-pic');
       }
@@ -59,6 +64,25 @@ export default async function decorate(block) {
       a.append(fig);
       col.replaceChildren(a);
     }));
+  }
+
+  if (block.classList.contains('bf-hero')) {
+    inners.forEach((inner) => {
+      // group consecutive buttonized CTA paragraphs into one wrapping row
+      inner.querySelectorAll('.column').forEach((col) => {
+        const ctas = [...col.querySelectorAll(':scope > p.button-wrapper, :scope > p:has(> strong > a), :scope > p:has(> em > a)')];
+        if (ctas.length > 1) {
+          const row = document.createElement('div');
+          row.className = 'cta-row';
+          ctas[0].before(row);
+          ctas.forEach((p) => row.append(p));
+        }
+      });
+      // LCP: first hero image eager
+      const img = inner.querySelector('.col-pic img');
+      if (img) { img.setAttribute('loading', 'eager'); img.setAttribute('fetchpriority', 'high'); }
+      inner.querySelectorAll('.col-pic img').forEach((i) => { if (i !== img) i.setAttribute('loading', 'eager'); });
+    });
   }
 
   block.replaceChildren(...inners);

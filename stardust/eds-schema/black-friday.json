@@ -1,0 +1,576 @@
+{
+ "source": "http://localhost:8813/black-friday-2026-proposed.html",
+ "width": 1280,
+ "profile": "eds",
+ "sections": [
+  {
+   "section": "hero",
+   "items": [
+    {
+     "role": "heading",
+     "order": 0,
+     "text": "Black Friday smaakt naar Catalonië"
+    },
+    {
+     "role": "body",
+     "order": 1,
+     "text": "Bruisende cava uit de Penedès en garnacha van oude stokken: onze Catalaanse selectie, van 23 t/m 30 november met Black Friday-voordeel."
+    },
+    {
+     "role": "body",
+     "order": 2,
+     "text": "Vanaf €8,99 per fles. thuisbezorgd vanaf 50,-."
+    },
+    {
+     "role": "body",
+     "order": 3,
+     "text": "Gratis"
+    },
+    {
+     "role": "cta",
+     "order": 4,
+     "text": "Bekijk de deals",
+     "href": "#deals"
+    },
+    {
+     "role": "cta",
+     "order": 5,
+     "text": "Ontdek de regio's",
+     "href": "#regios"
+    },
+    {
+     "role": "body",
+     "order": 6,
+     "text": "De drie flessen van de Black Friday-selectie"
+    }
+   ],
+   "imgCount": 3,
+   "repeats": []
+  },
+  {
+   "section": "deal-countdown",
+   "items": [
+    {
+     "role": "body",
+     "order": 0,
+     "text": "De Deal Week begint over"
+    },
+    {
+     "role": "body",
+     "order": 1,
+     "text": "80"
+    },
+    {
+     "role": "body",
+     "order": 2,
+     "text": "dagen"
+    },
+    {
+     "role": "body",
+     "order": 3,
+     "text": "16"
+    },
+    {
+     "role": "body",
+     "order": 4,
+     "text": "uur"
+    },
+    {
+     "role": "body",
+     "order": 5,
+     "text": "11"
+    },
+    {
+     "role": "body",
+     "order": 6,
+     "text": "minuten"
+    },
+    {
+     "role": "body",
+     "order": 7,
+     "text": "––"
+    },
+    {
+     "role": "body",
+     "order": 8,
+     "text": "seconden"
+    },
+    {
+     "role": "body",
+     "order": 9,
+     "text": "De Deal Week is voorbij."
+    },
+    {
+     "role": "cta",
+     "order": 10,
+     "text": "Bekijk onze actuele aanbiedingen",
+     "href": "https://www.wijnvoordeel.nl/aanbiedingen-wijn"
+    },
+    {
+     "role": "body",
+     "order": 11,
+     "text": "De Deal Week loopt van maandag 23 tot en met maandag 30 november 2026. Daarna gelden de normale prijzen weer."
+    },
+    {
+     "role": "body",
+     "order": 12,
+     "text": "Black Friday valt op vrijdag 27 november."
+    },
+    {
+     "role": "cta",
+     "order": 13,
+     "text": "Direct naar de drie flessen",
+     "href": "#deals"
+    }
+   ],
+   "imgCount": 0,
+   "repeats": [
+    {
+     "unitSelector": "LI.bf-tile",
+     "count": 4,
+     "unit": {
+      "headings": 0,
+      "ctas": 0,
+      "imgs": 0,
+      "textRuns": 2
+     },
+     "uniform": true
+    },
+    {
+     "unitSelector": "P.",
+     "count": 2,
+     "unit": {
+      "headings": 0,
+      "ctas": 0,
+      "imgs": 0,
+      "textRuns": 1
+     },
+     "uniform": false
+    }
+   ]
+  },
+  {
+   "section": "regions",
+   "items": [
+    {
+     "role": "heading",
+     "order": 0,
+     "text": "Drie regio's, één karakter"
+    },
+    {
+     "role": "body",
+     "order": 1,
+     "text": "Ten zuidwesten van Barcelona liggen drie wijnstreken dicht bij elkaar: zon, zee en steile hellingen. Dit is Catalonië op zijn smaakvolst."
+    },
+    {
+     "role": "heading",
+     "order": 2,
+     "text": "Priorat"
+    },
+    {
+     "role": "body",
+     "order": 3,
+     "text": "Garnacha, cariñena"
+    },
+    {
+     "role": "body",
+     "order": 4,
+     "text": "Steile terrassen van llicorella-leisteen en oude, laag opgeleide stokken. Krachtige, geconcentreerde rode wijnen met een minerale kern."
+    },
+    {
+     "role": "heading",
+     "order": 5,
+     "text": "Penedès"
+    },
+    {
+     "role": "body",
+     "order": 6,
+     "text": "Macabeo, xarel·lo, parellada"
+    },
+    {
+     "role": "body",
+     "order": 7,
+     "text": "Het hart van de cava. De druiven rijpen hier volgens de méthode traditionnelle tot frisse, fijne bubbels die op elke tafel passen."
+    },
+    {
+     "role": "heading",
+     "order": 8,
+     "text": "Montsant"
+    },
+    {
+     "role": "body",
+     "order": 9,
+     "text": "Garnacha, cariñena"
+    },
+    {
+     "role": "body",
+     "order": 10,
+     "text": "De ring rond de Priorat: dezelfde druiven, een zachter landschap. Ronde, fruitrijke garnacha die je zonder plechtigheid opentrekt."
+    }
+   ],
+   "imgCount": 0,
+   "repeats": [
+    {
+     "unitSelector": "LI.bf-regio",
+     "count": 3,
+     "unit": {
+      "headings": 1,
+      "ctas": 0,
+      "imgs": 0,
+      "textRuns": 3
+     },
+     "uniform": true
+    }
+   ]
+  },
+  {
+   "section": "deals",
+   "items": [
+    {
+     "role": "heading",
+     "order": 0,
+     "text": "Onze Black Friday-selectie"
+    },
+    {
+     "role": "body",
+     "order": 1,
+     "text": "Twee Catalaanse cava's en een garnacha van oude stokken: de druif waarmee Priorat en Montsant groot werden."
+    },
+    {
+     "role": "cta",
+     "order": 2,
+     "text": "Casa Safra Cava Brut",
+     "href": "https://www.wijnvoordeel.nl/casa-safra-cava-brut"
+    },
+    {
+     "role": "body",
+     "order": 3,
+     "text": "Catalunya - Fris"
+    },
+    {
+     "role": "body",
+     "order": 4,
+     "text": "9"
+    },
+    {
+     "role": "body",
+     "order": 5,
+     "text": ",99"
+    },
+    {
+     "role": "body",
+     "order": 6,
+     "text": "6 flessen"
+    },
+    {
+     "role": "body",
+     "order": 7,
+     "text": "12 flessen"
+    },
+    {
+     "role": "body",
+     "order": 8,
+     "text": "18 flessen"
+    },
+    {
+     "role": "body",
+     "order": 9,
+     "text": "24 flessen"
+    },
+    {
+     "role": "body",
+     "order": 10,
+     "text": "30 flessen"
+    },
+    {
+     "role": "body",
+     "order": 11,
+     "text": "36 flessen"
+    },
+    {
+     "role": "body",
+     "order": 12,
+     "text": "42 flessen"
+    },
+    {
+     "role": "body",
+     "order": 13,
+     "text": "48 flessen"
+    },
+    {
+     "role": "body",
+     "order": 14,
+     "text": "54 flessen"
+    },
+    {
+     "role": "body",
+     "order": 15,
+     "text": "60 flessen"
+    },
+    {
+     "role": "cta",
+     "order": 16,
+     "text": "In winkelwagen",
+     "href": "https://www.wijnvoordeel.nl/casa-safra-cava-brut"
+    },
+    {
+     "role": "cta",
+     "order": 17,
+     "text": "El Real Cava Brut",
+     "href": "https://www.wijnvoordeel.nl/el-real-cava-brut"
+    },
+    {
+     "role": "body",
+     "order": 18,
+     "text": "Penedès - Opwekkend"
+    },
+    {
+     "role": "body",
+     "order": 19,
+     "text": "8"
+    },
+    {
+     "role": "body",
+     "order": 20,
+     "text": ",99"
+    },
+    {
+     "role": "body",
+     "order": 21,
+     "text": "6 flessen"
+    },
+    {
+     "role": "body",
+     "order": 22,
+     "text": "12 flessen"
+    },
+    {
+     "role": "body",
+     "order": 23,
+     "text": "18 flessen"
+    },
+    {
+     "role": "body",
+     "order": 24,
+     "text": "24 flessen"
+    },
+    {
+     "role": "body",
+     "order": 25,
+     "text": "30 flessen"
+    },
+    {
+     "role": "body",
+     "order": 26,
+     "text": "36 flessen"
+    },
+    {
+     "role": "body",
+     "order": 27,
+     "text": "42 flessen"
+    },
+    {
+     "role": "body",
+     "order": 28,
+     "text": "48 flessen"
+    },
+    {
+     "role": "body",
+     "order": 29,
+     "text": "54 flessen"
+    },
+    {
+     "role": "body",
+     "order": 30,
+     "text": "60 flessen"
+    },
+    {
+     "role": "cta",
+     "order": 31,
+     "text": "In winkelwagen",
+     "href": "https://www.wijnvoordeel.nl/el-real-cava-brut"
+    },
+    {
+     "role": "body",
+     "order": 32,
+     "text": "2024 | Campo de Borja"
+    },
+    {
+     "role": "cta",
+     "order": 33,
+     "text": "Artiga Garnacha Selección Old Vines",
+     "href": "https://www.wijnvoordeel.nl/artiga-garnacha-seleccion-old-vines"
+    },
+    {
+     "role": "body",
+     "order": 34,
+     "text": "Garnacha - Rond"
+    },
+    {
+     "role": "body",
+     "order": 35,
+     "text": "9"
+    },
+    {
+     "role": "body",
+     "order": 36,
+     "text": ",29"
+    },
+    {
+     "role": "body",
+     "order": 37,
+     "text": "6 flessen"
+    },
+    {
+     "role": "body",
+     "order": 38,
+     "text": "12 flessen"
+    },
+    {
+     "role": "body",
+     "order": 39,
+     "text": "18 flessen"
+    },
+    {
+     "role": "body",
+     "order": 40,
+     "text": "24 flessen"
+    },
+    {
+     "role": "body",
+     "order": 41,
+     "text": "30 flessen"
+    },
+    {
+     "role": "body",
+     "order": 42,
+     "text": "36 flessen"
+    },
+    {
+     "role": "body",
+     "order": 43,
+     "text": "42 flessen"
+    },
+    {
+     "role": "body",
+     "order": 44,
+     "text": "48 flessen"
+    },
+    {
+     "role": "body",
+     "order": 45,
+     "text": "54 flessen"
+    },
+    {
+     "role": "body",
+     "order": 46,
+     "text": "60 flessen"
+    },
+    {
+     "role": "cta",
+     "order": 47,
+     "text": "In winkelwagen",
+     "href": "https://www.wijnvoordeel.nl/artiga-garnacha-seleccion-old-vines"
+    },
+    {
+     "role": "cta",
+     "order": 48,
+     "text": "Bekijk alle Spaanse wijnen",
+     "href": "https://www.wijnvoordeel.nl/spanje-wijn"
+    }
+   ],
+   "imgCount": 3,
+   "repeats": [
+    {
+     "unitSelector": "LI.rail-item",
+     "count": 3,
+     "unit": {
+      "headings": 1,
+      "ctas": 2,
+      "imgs": 1,
+      "textRuns": 15
+     },
+     "uniform": false
+    }
+   ]
+  },
+  {
+   "section": "usp",
+   "items": [
+    {
+     "role": "body",
+     "order": 0,
+     "text": "Nu besteld,"
+    },
+    {
+     "role": "body",
+     "order": 1,
+     "text": "donderdag in huis."
+    },
+    {
+     "role": "body",
+     "order": 2,
+     "text": "thuisbezorgd vanaf 50,-"
+    },
+    {
+     "role": "body",
+     "order": 3,
+     "text": "Gratis"
+    },
+    {
+     "role": "body",
+     "order": 4,
+     "text": "retourneren"
+    },
+    {
+     "role": "body",
+     "order": 5,
+     "text": "Gratis"
+    }
+   ],
+   "imgCount": 3,
+   "repeats": [
+    {
+     "unitSelector": "LI.",
+     "count": 3,
+     "unit": {
+      "headings": 0,
+      "ctas": 0,
+      "imgs": 1,
+      "textRuns": 2
+     },
+     "uniform": true
+    }
+   ]
+  },
+  {
+   "section": "closing-cta",
+   "items": [
+    {
+     "role": "heading",
+     "order": 0,
+     "text": "Proost op Black Friday"
+    },
+    {
+     "role": "body",
+     "order": 1,
+     "text": "Acht dagen, drie regio's, drie flessen om je voorraad mee aan te vullen. Nu besteld, donderdag in huis."
+    },
+    {
+     "role": "cta",
+     "order": 2,
+     "text": "Naar de deals",
+     "href": "#deals"
+    },
+    {
+     "role": "cta",
+     "order": 3,
+     "text": "Alle Spaanse wijnen",
+     "href": "https://www.wijnvoordeel.nl/spanje-wijn"
+    }
+   ],
+   "imgCount": 0,
+   "repeats": []
+  }
+ ]
+}

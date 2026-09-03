@@ -1,0 +1,145 @@
+/* deal-countdown — campaign countdown on the nacht ground (black-friday-2026).
+   Paints its own section dark so it also works standalone; shares the
+   ground-nacht bookend with columns.bf-hero when authored in the same section. */
+
+main .section.deal-countdown-container {
+  background: var(--color-nacht);
+  color: #fff;
+}
+
+.deal-countdown .deal-wrap {
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+  padding-top: 24px;
+  padding-bottom: 56px;
+}
+
+.deal-countdown .deal-count {
+  flex: 0 1 560px;
+  min-width: 0;
+}
+
+.deal-countdown .deal-label {
+  margin: 0 0 12px;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--color-krijt);
+}
+
+.deal-countdown .deal-label strong {
+  color: var(--color-primary);
+}
+
+.deal-countdown .deal-tiles {
+  display: flex;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.deal-countdown .deal-tile {
+  box-sizing: border-box;
+  flex: 1 1 0;
+  min-width: 72px;
+  padding: 18px 8px 14px;
+  border-radius: var(--radius-card);
+  background: var(--color-nacht-tegel);
+  text-align: center;
+}
+
+.deal-countdown .deal-tile b {
+  display: block;
+  font-size: 40px;
+  line-height: 44px;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  color: #fff;
+}
+
+.deal-countdown .deal-tile span {
+  display: block;
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--color-krijt);
+}
+
+.deal-countdown .deal-post {
+  display: none;
+  margin-top: 12px;
+  color: var(--color-krijt);
+}
+
+.deal-countdown.is-over .deal-tiles {
+  display: none;
+}
+
+.deal-countdown.is-over .deal-post {
+  display: block;
+}
+
+.deal-countdown .deal-offer {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 46ch;
+  padding-top: 2px;
+}
+
+.deal-countdown .deal-offer p,
+.deal-countdown .deal-post p {
+  margin: 0 0 12px;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--color-krijt);
+}
+
+.deal-countdown .deal-offer strong {
+  color: #fff;
+}
+
+.deal-countdown a:any-link {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--color-primary);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.deal-countdown a:hover {
+  text-decoration-color: #fff;
+}
+
+@media (width <= 768px) {
+  .deal-countdown .deal-wrap {
+    flex-direction: column;
+    gap: 24px;
+    padding: 16px 15px 40px;
+  }
+
+  .deal-countdown .deal-count {
+    flex: none;
+    width: 100%;
+  }
+
+  .deal-countdown .deal-offer {
+    max-width: none;
+  }
+}
+
+@media (width <= 414px) {
+  .deal-countdown .deal-tiles {
+    flex-wrap: wrap;
+  }
+
+  .deal-countdown .deal-tile {
+    flex: 1 1 40%;
+  }
+
+  .deal-countdown .deal-tile b {
+    font-size: 36px;
+    line-height: 40px;
+  }
+}
